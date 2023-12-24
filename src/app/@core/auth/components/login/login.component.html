@@ -1,0 +1,150 @@
+<div class="w-75 w-xl-50 h-100 mx-auto d-flex flex-column justify-content-center">
+  <div
+    class="notice d-flex bg-light-danger rounded border-danger border border-dashed p-6 mb-4"
+    *ngIf="(errorMessage$ | async) !== null"
+  >
+    <!--begin::Icon-->
+    <i class="ki-duotone ki-information fs-2tx text-danger me-4"
+      ><span class="path1"></span><span class="path2"></span><span class="path3"></span
+    ></i>
+    <!--end::Icon-->
+
+    <!--begin::Wrapper-->
+    <div class="d-flex flex-stack flex-grow-1">
+      <!--begin::Content-->
+      <div class="fw-semibold">
+        <h4 class="text-gray-900 fw-bold">حدث خطأ</h4>
+
+        <div class="fs-6 text-gray-700">
+          {{ errorMessage$ | async }}
+        </div>
+      </div>
+      <!--end::Content-->
+    </div>
+    <!--end::Wrapper-->
+  </div>
+  <form [formGroup]="loginForm">
+    <div class="main-title">
+      <h2 class="mb-5 fs-1">تسجيل الدخول للحساب</h2>
+      <p class="text-gray-500">مرحباً بك... الرجاء إدخال التفاصيل الخاصة بك</p>
+    </div>
+    <div class="form-group form-group-lg position-relative my-5">
+      <i
+        class="fa-regular fa-envelope fa-lg position-absolute top-50 start-0 ms-3 translate-middle-y"
+      ></i>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        class="form-control form-control-lg ps-11"
+        [ngClass]="{
+          'is-valid': loginForm.controls.email.valid,
+          'is-invalid':
+            loginForm.controls.email.invalid &&
+            (loginForm.controls.email.dirty || loginForm.controls.email.touched)
+        }"
+        placeholder="الايميل"
+      />
+    </div>
+    <ng-container
+      [ngTemplateOutlet]="formError"
+      [ngTemplateOutletContext]="{
+        validation: 'email',
+        message: ' الإيميل غير صحيح',
+        control: loginForm.controls['email']
+      }"
+    ></ng-container>
+    <ng-container
+      [ngTemplateOutlet]="formError"
+      [ngTemplateOutletContext]="{
+        validation: 'required',
+        message: 'الايميل مطلوب',
+        control: loginForm.controls['email']
+      }"
+    ></ng-container>
+
+    <div class="form-group form-group-lg position-relative my-5">
+      <i
+        class="fa-solid fa-lock fa-lg position-absolute top-50 start-0 ms-3 translate-middle-y"
+      ></i>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        class="form-control form-control-lg ps-11"
+        [ngClass]="{
+          'is-valid': loginForm.controls.password.valid,
+          'is-invalid':
+            loginForm.controls.password.invalid &&
+            (loginForm.controls.password.dirty || loginForm.controls.password.touched)
+        }"
+        placeholder="كلمة المرور"
+        required
+        minlength
+        maxLength
+        pattern
+      />
+    </div>
+    <ng-container
+      [ngTemplateOutlet]="formError"
+      [ngTemplateOutletContext]="{
+        validation: ['pattern'],
+        message:
+          '
+      يمكن أن تتألف كلمة المرور من أيّ مجموعة من الأحرف والأرقام والرموز (أحرف ASCII العادية فقط). ولا يمكن استخدام علامات تشكيل أو أحرف مُشكّلة.',
+        control: loginForm.controls['password']
+      }"
+    ></ng-container>
+
+    <ng-container
+      [ngTemplateOutlet]="formError"
+      [ngTemplateOutletContext]="{
+        validation: ['minlength'],
+        message: 'كلمة  المرور الخاصة بك ليست قوية ، يجب الا تقل عن 8 حروف',
+        control: loginForm.controls['password']
+      }"
+    ></ng-container>
+
+    <ng-container
+      [ngTemplateOutlet]="formError"
+      [ngTemplateOutletContext]="{
+        validation: ['required'],
+        message: 'مطلوب كلمة المرور ',
+        control: loginForm.controls['password']
+      }"
+    ></ng-container>
+
+    <div class="forget_pass d-flex justify-content-between">
+      <a routerLink="../forgot-password" class="link-primary fw-bold"> نسيت كلمة المرور ؟ </a>
+      <!-- <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+        <label class="form-check-label text-gray-900" for="flexCheckDefault"> تواصل معنا </label>
+      </div> -->
+    </div>
+    <div class="form_alerts">
+      <p style="color: #ed4f9d"></p>
+    </div>
+
+    <div class="form-group form-group-lg position-relative my-10">
+      <button class="btn btn-primary w-100" [disabled]="!loginForm.valid" (click)="submit()">
+        تسجيل دخول
+        <span
+          *ngIf="loadingAuth$ | async"
+          class="spinner-border spinner-border-sm align-middle ms-2"
+        ></span>
+      </button>
+    </div>
+
+    <ng-template #formError let-validation="validation" let-message="message" let-control="control">
+      <ng-container *ngIf="control.hasError(validation) && (control.dirty || control.touched)">
+        <div class="form_alerts">
+          <p style="color: #ed4f9d">{{ message }}</p>
+        </div>
+      </ng-container>
+    </ng-template>
+  </form>
+  <div class="text-center">
+    هل لديك حساب ؟
+    <a routerLink="../registration" class="text-primary fw-bold"> إنشاء حساب</a>
+  </div>
+</div>

@@ -1,0 +1,485 @@
+
+body{
+  font-family:'lama_Reg';
+  overflow-x: hidden;
+}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .app-sidebar-logo {
+    border: none;
+  }
+[type=email],[type=number]{
+  direction: rtl;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+$main-color:#009ef7;
+$main-color-hover:#009ef7;
+$first-color: #004956;
+$second-color:#EFF6FF;
+$second-color-hover:#eff6ffd1;
+$gray-color:#64748B;
+$move-color: #7551FF;
+
+.text-underline{
+  text-decoration: underline;
+}
+.bg-img{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-contain{
+  background-size: contain;
+}
+.hover-main-color.active,
+.hover-main-color:hover {
+  background-color: $main-color ;
+  .count-title{
+    color: #131B2F !important;
+  }
+}
+
+.bg-main-color {
+  background-color: $main-color ;
+
+  &.active{
+    background-color: #009ef7;
+  }
+  &:hover {
+    background-color: $main-color-hover ;
+  }
+}
+.first-color{
+  color: $first-color;
+}
+
+.border-main-color:focus,
+.border-main-color{
+  border-color: $main-color !important;
+}
+.hover-main:hover,
+.main-color:focus,
+.main-color {
+  color: $main-color ;
+}
+
+.border-second-color{
+  border-color: $second-color!important;
+}
+.second-color {
+  color: $second-color !important;
+}
+
+.gray-color {
+  color: $gray-color ;
+}
+.bg-gray-color{
+  background-color: $gray-color ;
+}
+.bg-move-color{
+  background-color: $move-color;
+}
+.move-color{
+  color: $move-color;
+}
+
+.hov-bg-yellow:hover{
+  background-color: #F6A723;
+}
+.bg-second-color {
+  background-color: $second-color ;
+  color: #131B2F;
+
+  &:hover {
+    background-color: $second-color-hover ;
+    color: #131B2F;
+  }
+}
+.social-info {
+  a{
+    display: inline-block;
+    height: 60px;
+    font-size: 18px;
+    margin-bottom: 30px;
+    transition: all .2s ease-in-out;
+    &:hover{
+      transform: scale(1.05);
+    }
+  }
+  .facebook-bg{
+    background-color: #1877F2;
+    color: #fff;
+  }
+  .tektok-bg{
+    background-color: #000;
+    color: #fff;
+  }
+  .twitter-bg{
+    background-color: #1D9BF0;
+    color: #fff;
+  }
+  .instagram-bg{
+    background: linear-gradient(5deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    color: #fff;
+  }
+  .linkedIn-bg{
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #666;
+  }
+  .youtub-bg{
+    background-color: #FF0000;
+    color: #fff;
+  }
+}
+.card {
+  border-radius: 16px;
+}
+
+.transition, .grow-1{
+  transition: all .2s ease-in-out;
+}
+
+.grow-1:hover{
+  transform: scale(1.05 );
+}
+.card-with-tail{
+
+  transition: all .2s ease-in-out;
+  &:hover {
+    transform: translateY(-15px);
+  }
+  .card-has-tail {
+    border-radius: 16px 16px 0 16px;
+    box-shadow: none;
+  }
+  .card-tail{
+    a{
+      svg{
+        stroke: #E3E8F3;
+        &:hover{
+          stroke: #F6A723;
+        }
+      }
+    }
+  }
+}
+
+
+.card-tail{
+  .card {
+    height: 80px;
+    box-shadow: none;
+    border-radius: 0 0 16px 16px;
+  }
+}
+
+.border-l-sec {
+  border-left: 1px solid $second-color ;
+}
+
+  /* start search filter */
+.form-group.titled {
+  position: relative;
+
+  > svg {
+    position: absolute;
+    bottom: 13%;
+    transform: translateY(-50% );
+  }
+  >svg.right{
+    right: 30px;
+  }
+  >svg.left{
+    left: 30px;
+  }
+}
+.search-filter {
+  margin-bottom: 30px;
+
+  .form-group {
+    position: relative;
+
+    > svg {
+      position: absolute;
+      top: 50%;
+      left: 30px;
+      transform: translateY(-50% );
+      z-index: 2;
+    }
+
+    .btn {
+      border-radius: 10px;
+
+      &:hover {
+        background-color: unset;
+        color: $gray-color ;
+      }
+    }
+
+    input, select {
+      border-color: $gray-color ;
+      color: $gray-color ;
+      padding: 13px 40px 13px 5px;
+      border-radius: 10px;
+    }
+  }
+
+  &.search-filter-second .form-group {
+    input, select {
+      border: 1.5px solid $second-color ;
+      padding-right: 65px;
+      padding-left: 10px;
+    }
+
+    > svg {
+      right: 20px;
+      left: unset;
+      height: 100%;
+      border-left: 1px solid $second-color ;
+      width: 40px;
+      padding-left: 10px;
+    }
+  }
+}
+
+/* end search filter */
+
+.menu-card, .menu-link:hover {
+  background-color: #24304B;
+}
+
+  /* start pagination */
+
+.pagination {
+  span {
+    display: inline-block;
+    text-align: center;
+    padding: 7px;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: $second-color ;
+    text-decoration: none;
+    color: #131B2F;
+    font-size: 16px;
+    margin: 5px;
+  }
+
+  a {
+    display: inline-block;
+    text-align: center;
+    padding: 7px;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: $second-color ;
+    text-decoration: none;
+    color: #131B2F;
+    font-size: 16px;
+    margin: 5px;
+
+    &:hover {
+      background-color: $main-color ;
+      color: $second-color ;
+    }
+  }
+
+  span {
+    background-color: unset;
+    color: $second-color ;
+  }
+}
+
+/* end pagination */
+//----------------------- start campaing details -----------------------//
+.campaing-btn{
+  .btn{
+   border-radius: 16px;
+   width: 140px;
+   text-align: center;
+   height: 40px;
+ }
+
+}
+//----------------------- end campaing details -----------------------//
+
+// credit  card
+.circle_after{
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: linear-gradient(138.85deg, #0ACF83 20.79%, #0BB967 83.47%);
+  &::after{
+    content: '';
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: #000;
+    opacity: .08;
+    position: absolute;
+    top: -150px;
+    right: -70px;
+    z-index: -1;
+    // box-shadow: inset 24px 18px 110px 130px rgba(0, 0, 0, 0.1215686275)
+
+  }
+}
+
+// ----------------------------start login_page-------------------------//
+.creat-account{
+  .option2{
+    display: none;
+  }
+  .radio_restyle{
+    border: 2px solid #64748B;
+    border-radius: 12px;
+    padding: 15px;
+    height: 140px;
+    width: 100%;
+    label{
+      color: #64748B;
+      cursor: pointer;
+    }
+  }
+  .radio_restyle.active{
+    border-color: #009ef7;
+    label{
+      color: #2563EB;
+    }
+  }
+
+
+  input[type='radio']{
+    float: unset;
+  }
+
+  .store{
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(76, 184, 196, 0.70) 0%, rgba(60, 211, 173, 0.70) 100%);
+    height: 140px;
+    // width: 140px;
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+    .soon{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #939393b9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        visibility: hidden;
+        strong{
+          font-size: 45px;
+          color: #4f4f4fe4;
+        }
+    }
+  }
+  .store.coming-up{
+    .soon{
+      visibility: visible;
+    }
+  }
+}
+// ----------------------------end login_page-------------------------//
+// slider setting
+.bxslider{
+  img{
+    margin: auto;
+  }
+}
+#bx-pager {
+  text-align: center;
+  margin-top: -30px;
+  overflow: hidden;
+  a{
+    margin: 0 3px;
+    img {
+      padding: 3px;
+      width: 100%;
+    }
+  }
+  a.active img {
+    border: solid #5280DD 1px;
+  }
+
+}
+
+.bx-wrapper {
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  background: none;
+}
+
+
+// flag tag set
+.flag-tag{
+  .close{
+    opacity: 0;
+    color: #585858;
+    line-height: .5;
+    &:hover{
+      color: $main-color;
+    }
+  }
+  &:hover .close{
+    opacity: 1;
+  }
+}
+.select2-container--bootstrap5{
+  .select2-selection {
+    padding: 13px;
+    border: 1.5px solid #64748b;
+  }
+  .select2-dropdown{
+    .select2-results__option.select2-results__option--selected:after{
+      right: .25rem;
+    }
+  }
+}
+
+.search-filter{
+  input[type="text"]:focus{
+    border-color: $main-color;
+  }
+}
+.search-filter-second{
+  .select2-selection {
+    padding: 13px;
+    padding-right: 60px;
+    border: 1.5px solid #eff6ff;
+  }
+}
+// set payment date input
+#addCard{
+  .pillings_card{
+    cursor: pointer;
+    &.active{
+        border: 2px solid $main-color;
+    }
+  }
+}
+
+.arrow-left .menu-item .menu-link .menu-arrow:after
+{
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+}
+
