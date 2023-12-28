@@ -13,7 +13,7 @@
     <div class="d-flex flex-stack flex-grow-1">
       <!--begin::Content-->
       <div class="fw-semibold">
-        <h4 class="text-gray-900 fw-bold">حدث خطأ</h4>
+        <h4 class="text-gray-900 fw-bold">Something went Wrong</h4>
 
         <div class="fs-6 text-gray-700">
           {{ errorMessage$ | async }}
@@ -25,32 +25,35 @@
   </div>
   <form [formGroup]="loginForm">
     <div class="main-title">
-      <h2 class="mb-5 fs-1">تسجيل الدخول للحساب</h2>
-      <p class="text-gray-500">مرحباً بك... الرجاء إدخال التفاصيل الخاصة بك</p>
+      <h2 class="mb-5 fs-1">Log in to Your Account</h2>
+      <p class="text-gray-500">Welocome ! Please Enter your credentials</p>
     </div>
     <div class="form-group form-group-lg position-relative my-5">
       <i
         class="fa-regular fa-envelope fa-lg position-absolute top-50 start-0 ms-3 translate-middle-y"
+        
       ></i>
       <input
         id="email"
         type="email"
         formControlName="email"
-        class="form-control form-control-lg ps-11"
+        class="form-control form-control-lg ps-11 d-flex flex-row"
         [ngClass]="{
           'is-valid': loginForm.controls.email.valid,
           'is-invalid':
             loginForm.controls.email.invalid &&
             (loginForm.controls.email.dirty || loginForm.controls.email.touched)
         }"
-        placeholder="الايميل"
+        placeholder="Email"
+        
+        
       />
     </div>
     <ng-container
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'email',
-        message: ' الإيميل غير صحيح',
+        message: 'Email is not correct',
         control: loginForm.controls['email']
       }"
     ></ng-container>
@@ -58,7 +61,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: 'required',
-        message: 'الايميل مطلوب',
+        message: 'Email is required',
         control: loginForm.controls['email']
       }"
     ></ng-container>
@@ -78,20 +81,19 @@
             loginForm.controls.password.invalid &&
             (loginForm.controls.password.dirty || loginForm.controls.password.touched)
         }"
-        placeholder="كلمة المرور"
+        placeholder="Password "
         required
         minlength
         maxLength
         pattern
       />
     </div>
+
     <ng-container
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: ['pattern'],
-        message:
-          '
-      يمكن أن تتألف كلمة المرور من أيّ مجموعة من الأحرف والأرقام والرموز (أحرف ASCII العادية فقط). ولا يمكن استخدام علامات تشكيل أو أحرف مُشكّلة.',
+        message:'Your Password Should Contain letters,numbers,normal symboles',
         control: loginForm.controls['password']
       }"
     ></ng-container>
@@ -100,7 +102,7 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: ['minlength'],
-        message: 'كلمة  المرور الخاصة بك ليست قوية ، يجب الا تقل عن 8 حروف',
+        message: 'Your Password should be 8 characters and more ',
         control: loginForm.controls['password']
       }"
     ></ng-container>
@@ -109,13 +111,13 @@
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
         validation: ['required'],
-        message: 'مطلوب كلمة المرور ',
+        message: 'Password is required',
         control: loginForm.controls['password']
       }"
     ></ng-container>
 
     <div class="forget_pass d-flex justify-content-between">
-      <a routerLink="../forgot-password" class="link-primary fw-bold"> نسيت كلمة المرور ؟ </a>
+      <a routerLink="../forgot-password" class="link-primary fw-bold"> Forget your password ?</a>
       <!-- <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
         <label class="form-check-label text-gray-900" for="flexCheckDefault"> تواصل معنا </label>
@@ -127,7 +129,7 @@
 
     <div class="form-group form-group-lg position-relative my-10">
       <button class="btn btn-primary w-100" [disabled]="!loginForm.valid" (click)="submit()">
-        تسجيل دخول
+        Log In
         <span
           *ngIf="loadingAuth$ | async"
           class="spinner-border spinner-border-sm align-middle ms-2"
@@ -144,7 +146,7 @@
     </ng-template>
   </form>
   <div class="text-center">
-    هل لديك حساب ؟
-    <a routerLink="../registration" class="text-primary fw-bold"> إنشاء حساب</a>
+    Don't have account yet ? 
+    <a routerLink="../registration" class="text-primary fw-bold">Sign up now !</a>
   </div>
 </div>
