@@ -17,6 +17,7 @@ import { NgxsResetPluginModule } from 'ngxs-reset-plugin';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
+import { SettingsComponent } from './@features/settings/settings.component';
 
 function des(data: string) {
   return CryptoJS.AES.decrypt(
@@ -33,7 +34,7 @@ function enc(data: string) {
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SettingsComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
