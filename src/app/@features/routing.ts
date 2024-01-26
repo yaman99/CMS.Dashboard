@@ -1,4 +1,12 @@
 import { Routes } from '@angular/router';
+import { SettingsComponent } from './settings/settings.component';
+import { UsersManagementComponent } from './users-management/users-management.component';
+import { CourseManagementComponent } from './course-management/course-management.component';
+import { ContentManagementComponent } from './content-management/content-management.component';
+import { CommunityManagementComponent } from './community-management/community-management.component';
+import { ProfileInfoComponent } from './settings/components/profile-info/profile-info.component';
+import { AccountSettingsComponent } from './settings/components/account-settings/account-settings.component';
+import { SocialMediaAccountsComponent } from './settings/components/social-media-accounts/social-media-accounts.component';
 // import { IntegrationExpiredGuard } from '@core/guards/integration-expired.guard';
 
 const Routing: Routes = [
@@ -7,7 +15,49 @@ const Routing: Routes = [
     // canActivate: [IntegrationExpiredGuard],
     loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
+  {
+    path: 'users-management',
+    component: UsersManagementComponent,
 
+  },
+  {
+    path: 'course-management',
+    component: CourseManagementComponent,
+
+  },
+  {
+    path: 'content-management',
+    component: ContentManagementComponent,
+
+  },
+  {
+    path: 'community-management',
+    component: CommunityManagementComponent,
+
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
+    children:[
+      {
+        path: '',
+        component:ProfileInfoComponent,
+      },
+      {
+        path: 'profile-info',
+        component:ProfileInfoComponent,
+      },
+      {
+        path: 'account-settings',
+        component:AccountSettingsComponent,
+      },
+      {
+        path: 'social-accounts',
+        component:SocialMediaAccountsComponent,
+      },
+
+    ]
+  },
   {
     path: '',
     redirectTo: '/dashboard',

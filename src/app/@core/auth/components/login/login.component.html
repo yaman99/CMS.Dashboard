@@ -31,13 +31,12 @@
     <div class="form-group form-group-lg position-relative my-5">
       <i
         class="fa-regular fa-envelope fa-lg position-absolute top-50 start-0 ms-3 translate-middle-y"
-        
       ></i>
       <input
         id="email"
         type="email"
         formControlName="email"
-        class="form-control form-control-lg ps-11 d-flex flex-row"
+        class="form-control form-control-lg ps-11"
         [ngClass]="{
           'is-valid': loginForm.controls.email.valid,
           'is-invalid':
@@ -45,10 +44,9 @@
             (loginForm.controls.email.dirty || loginForm.controls.email.touched)
         }"
         placeholder="Email"
-        
-        
       />
     </div>
+   
     <ng-container
       [ngTemplateOutlet]="formError"
       [ngTemplateOutletContext]="{
