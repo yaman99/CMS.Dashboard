@@ -5,6 +5,7 @@ import { SettingsComponent } from './settings.component';
 import { ProfileInfoComponent } from './components/profile-info/profile-info.component';
 import { AccountSettingsComponent } from './components/account-settings/account-settings.component';
 import { SocialMediaAccountsComponent } from './components/social-media-accounts/social-media-accounts.component';
+import { UsersSettingsComponent } from './users-settings/users-settings.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { SocialMediaAccountsComponent } from './components/social-media-accounts
     SettingsComponent,
     SocialMediaAccountsComponent,
     ProfileInfoComponent,
-    AccountSettingsComponent
+    AccountSettingsComponent,
+    UsersSettingsComponent
   ],
   imports: [
     CommonModule,

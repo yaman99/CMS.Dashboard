@@ -7,6 +7,8 @@ import { CommunityManagementComponent } from './community-management/community-m
 import { ProfileInfoComponent } from './settings/components/profile-info/profile-info.component';
 import { AccountSettingsComponent } from './settings/components/account-settings/account-settings.component';
 import { SocialMediaAccountsComponent } from './settings/components/social-media-accounts/social-media-accounts.component';
+import { UsersSettingsComponent } from './settings/users-settings/users-settings.component';
+import { ViewUserComponent } from './users-management/view-user/view-user.component';
 // import { IntegrationExpiredGuard } from '@core/guards/integration-expired.guard';
 
 const Routing: Routes = [
@@ -18,7 +20,12 @@ const Routing: Routes = [
   {
     path: 'users-management',
     component: UsersManagementComponent,
-
+ 
+  },
+  {
+    path: 'view-user',
+    component: ViewUserComponent,
+ 
   },
   {
     path: 'course-management',
@@ -34,6 +41,10 @@ const Routing: Routes = [
     path: 'community-management',
     component: CommunityManagementComponent,
 
+  },
+  {
+    path: 'users-settings',
+    component: UsersSettingsComponent,
   },
   {
     path: 'settings',
