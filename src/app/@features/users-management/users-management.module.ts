@@ -3,13 +3,17 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { UsersManagementRoutingModule } from './users-management-routing.module';
 import { UsersManagementComponent } from './users-management.component';
-import { ViewUserComponent } from './view-user/view-user.component';
+import { ListComponent } from './list/list.component';
+import { FormComponent } from './form/form.component';
+import { ViewComponent } from './view/view.component';
 
 
 @NgModule({
   declarations: [
     UsersManagementComponent,
-    ViewUserComponent
+    ViewComponent,
+    ListComponent,
+    FormComponent,
   ],
   imports: [
     CommonModule,
