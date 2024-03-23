@@ -1,7 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CommunityManagementComponent } from './community-management.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: '',
+    component: CommunityManagementComponent,
+  },
+];
+
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

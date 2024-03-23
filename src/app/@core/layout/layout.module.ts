@@ -35,6 +35,9 @@ import { LayoutSharedModule } from '../shared/sharedlayout.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SidebarMenuPromoterComponent } from './components/sidebar/sidebar-menu/sidebar-menu-promoter/sidebar-menu-promoter.component';
 import { SidebarMenuWorkspaceComponent } from './components/sidebar/sidebar-menu/sidebar-menu-workspace/sidebar-menu-workspace.component';
+import { SidebarMenuAdminComponent } from './components/sidebar/sidebar-menu/sidebar-menu-admin/sidebar-menu-admin.component';
+import { SidebarMenuInstructorComponent } from './components/sidebar/sidebar-menu/sidebar-menu-instructor/sidebar-menu-instructor.component';
+import { SidebarMenuStudentComponent } from './components/sidebar/sidebar-menu/sidebar-menu-student/sidebar-menu-student.component';
 
 const routes: Routes = [
   {
@@ -66,6 +69,9 @@ const routes: Routes = [
     SaasComponent,
     SidebarMenuPromoterComponent,
     SidebarMenuWorkspaceComponent,
+    SidebarMenuAdminComponent,
+    SidebarMenuInstructorComponent,
+    SidebarMenuStudentComponent,
   ],
   imports: [
     CommonModule,
