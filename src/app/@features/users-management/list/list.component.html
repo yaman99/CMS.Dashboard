@@ -24,7 +24,7 @@
     <div class="card-toolbar">
       <!--begin::Toolbar-->
       <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-       <app-form [mode]="'add'"></app-form>
+       <app-form *ngIf="userType === 'admin'" [mode]="'add'"></app-form>
       </div>
       <!--end::Toolbar-->
 
