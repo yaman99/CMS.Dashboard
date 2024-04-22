@@ -1,6 +1,6 @@
-<!-- <app-sidebar-menu-promoter *ngIf="isPromoter$ | async"></app-sidebar-menu-promoter>
-<app-sidebar-menu-workspace *ngIf="isAdvertiser$ | async"></app-sidebar-menu-workspace> -->
 
-<app-sidebar-menu-promoter></app-sidebar-menu-promoter>
-<!-- <app-sidebar-menu-workspace></app-sidebar-menu-workspace> -->
+<app-sidebar-menu-admin *ngIf="userType === 'admin'"></app-sidebar-menu-admin>
+<app-sidebar-menu-student *ngIf="userType === 'student'"></app-sidebar-menu-student>
+<app-sidebar-menu-instructor *ngIf="userType === 'instructor'"></app-sidebar-menu-instructor>
+
 

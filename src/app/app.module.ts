@@ -18,6 +18,8 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { NgxsRouterPluginModule } from '@ngxs/router-plugin';
 import { SettingsComponent } from './@features/settings/settings.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 function des(data: string) {
   return CryptoJS.AES.decrypt(
@@ -37,6 +39,8 @@ function enc(data: string) {
   declarations: [AppComponent, SettingsComponent],
   imports: [
     BrowserModule,
+    CommonModule,
+    FormsModule,
     BrowserAnimationsModule,
     CoreModule,
     JwtModule.forRoot({

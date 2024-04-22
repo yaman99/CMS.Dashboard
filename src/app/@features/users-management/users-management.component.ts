@@ -8,11 +8,11 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./users-management.component.scss']
 })
 export class UsersManagementComponent {
-	private modalService = inject(NgbModal);
+	// private modalService = inject(NgbModal);
 
-  openLg(AddUser: TemplateRef<any>) {
-		this.modalService.open(AddUser, { size: 'lg' });
-	}
+  // openLg(AddUser: TemplateRef<any>) {
+	// 	this.modalService.open(AddUser, { size: 'lg' });
+	// }
 }
 
 

@@ -2,11 +2,7 @@ import { Routes } from '@angular/router';
 import { SettingsComponent } from './settings/settings.component';
 import { UsersManagementComponent } from './users-management/users-management.component';
 import { CourseManagementComponent } from './course-management/course-management.component';
-import { ContentManagementComponent } from './content-management/content-management.component';
 import { CommunityManagementComponent } from './community-management/community-management.component';
-import { ProfileInfoComponent } from './settings/components/profile-info/profile-info.component';
-import { AccountSettingsComponent } from './settings/components/account-settings/account-settings.component';
-import { SocialMediaAccountsComponent } from './settings/components/social-media-accounts/social-media-accounts.component';
 // import { IntegrationExpiredGuard } from '@core/guards/integration-expired.guard';
 
 const Routing: Routes = [
@@ -16,47 +12,24 @@ const Routing: Routes = [
     loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
   {
-    path: 'users-management',
-    component: UsersManagementComponent,
-
+    path: 'users',
+    loadChildren: () => import('./users-management/users-management.module').then((m) => m.UsersManagementModule)
   },
   {
-    path: 'course-management',
-    component: CourseManagementComponent,
-
+    path: 'courses',
+    loadChildren: () => import('./course-management/course-management.module').then((m) => m.CourseManagementModule)
   },
   {
-    path: 'content-management',
-    component: ContentManagementComponent,
-
-  },
-  {
-    path: 'community-management',
-    component: CommunityManagementComponent,
-
+    path: 'community',
+    loadChildren: () => import('./community-management/community-management.module').then((m) => m.CommunityManagementModule)
   },
   {
     path: 'settings',
-    component: SettingsComponent,
-    children:[
-      {
-        path: '',
-        component:ProfileInfoComponent,
-      },
-      {
-        path: 'profile-info',
-        component:ProfileInfoComponent,
-      },
-      {
-        path: 'account-settings',
-        component:AccountSettingsComponent,
-      },
-      {
-        path: 'social-accounts',
-        component:SocialMediaAccountsComponent,
-      },
-
-    ]
+    loadChildren: () => import('./settings/settings.module').then((m) => m.SettingsModule)
+  },
+  {
+    path: 'courses-library',
+    loadChildren: () => import('./courses-library/courses-library.module').then((m) => m.CoursesLibraryModule)
   },
   {
     path: '',

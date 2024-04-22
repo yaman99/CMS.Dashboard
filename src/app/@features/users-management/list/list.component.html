@@ -1,0 +1,634 @@
+
+<div class="card card-flush h-xl-100" data-select2-id="select2-data-223-k9y4">
+  <!--begin::Card header-->
+  <div class="card-header border-0 pt-6">
+    <!--begin::Card title-->
+    <div class="card-title">
+      <!--begin::Search-->
+      <div class="d-flex align-items-center position-relative my-1">
+        <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5"
+          ><span class="path1"></span><span class="path2"></span
+        ></i>
+        <input
+          type="text"
+          data-kt-user-table-filter="search"
+          class="form-control form-control-solid w-250px ps-13"
+          placeholder="Search user"
+        />
+      </div>
+      <!--end::Search-->
+    </div>
+    <!--begin::Card title-->
+
+    <!--begin::Card toolbar-->
+    <div class="card-toolbar">
+      <!--begin::Toolbar-->
+      <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
+       <app-form *ngIf="userType === 'admin'" [mode]="'add'"></app-form>
+      </div>
+      <!--end::Toolbar-->
+
+    </div>
+    <!--end::Card toolbar-->
+  </div>
+  <!--end::Card header-->
+
+  <!--begin::Card body-->
+  <div class="card-body pt-2">
+    <!--begin::Table-->
+    <div id="kt_table_widget_4_table_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+      <div class="table-responsive">
+        <table
+          class="table align-middle table-row-dashed fs-6 gy-3 dataTable no-footer"
+          id="kt_table_widget_4_table"
+        >
+          <!--begin::Table head-->
+          <thead>
+            <!--begin::Table row-->
+            <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
+              <th class="min-w-100px sorting_disabled" rowspan="1" colspan="1" style="width: 100px">
+                User ID
+              </th>
+              <th
+                class="text-end min-w-100px sorting_disabled"
+                rowspan="1"
+                colspan="1"
+                style="width: 100px"
+              >
+                Creation Date
+              </th>
+              <th
+                class="text-end min-w-125px sorting_disabled"
+                rowspan="1"
+                colspan="1"
+                style="width: 125px"
+              >
+                Name
+              </th>
+              <th
+                class="text-end min-w-100px sorting_disabled"
+                rowspan="1"
+                colspan="1"
+                style="width: 100px"
+              >
+                User Type
+              </th>
+              <th
+                class="text-end min-w-100px sorting_disabled"
+                rowspan="1"
+                colspan="1"
+                style="width: 100px"
+              >
+                Age
+              </th>
+              <th
+                class="text-end min-w-50px sorting_disabled"
+                rowspan="1"
+                colspan="1"
+                style="width: 89.1953px"
+              >
+                Status
+              </th>
+              <th
+                class="text-end sorting_disabled"
+                rowspan="1"
+                colspan="1"
+                style="width: 25px"
+              ></th>
+            </tr>
+            <!--end::Table row-->
+          </thead>
+          <!--end::Table head-->
+
+          <!--begin::Table body-->
+          <tbody class="fw-bold text-gray-600">
+            <tr class="odd">
+              <td>
+                <a
+                  href="/metronic8/demo1/apps/ecommerce/catalog/edit-product.html"
+                  class="text-gray-800 text-hover-primary"
+                  >#XGY-346</a
+                >
+              </td>
+
+              <td class="text-end">7 min ago</td>
+
+              <td class="text-end">
+                <a href="#" class="text-gray-600 text-hover-primary">Albert Flores</a>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-dark">Student</span>
+              </td>
+
+              <td class="text-end">
+                <span class="text-gray-800 fw-bolder">21</span>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-warning">Pending</span>
+              </td>
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px"
+                  data-kt-menu-trigger="click"
+                  data-kt-menu-placement="bottom-end"
+                  data-kt-menu-overflow="true"
+                >
+                  <i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
+                </button>
+                <div
+                  class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px"
+                  data-kt-menu="true"
+                  style=""
+                >
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <div class="menu-content fs-6 text-gray-900 fw-bold px-3 py-4">
+                      Quick Actions
+                    </div>
+                  </div>
+                  <!--end::Menu item-->
+
+                  <!--begin::Menu separator-->
+                  <div class="separator mb-3 opacity-75"></div>
+                  <!--end::Menu separator-->
+
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+
+                    <a routerLink="../view"   class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> View </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+
+                    <app-form [mode]="'edit'"></app-form>
+
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Delete </a>
+                  </div>
+                  <!--end::Menu item-->
+                </div>
+              </td>
+            </tr>
+            <tr class="even">
+              <td>
+                <a
+                  href="/metronic8/demo1/apps/ecommerce/catalog/edit-product.html"
+                  class="text-gray-800 text-hover-primary"
+                  >#YHD-047</a
+                >
+              </td>
+
+              <td class="text-end">52 min ago</td>
+
+              <td class="text-end">
+                <a href="#" class="text-gray-600 text-hover-primary">Jenny Wilson</a>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-info">instructor</span>
+              </td>
+
+              <td class="text-end">
+                <span class="text-gray-800 fw-bolder">33</span>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-primary">Confirmed</span>
+              </td>
+
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px"
+                  data-kt-menu-trigger="click"
+                  data-kt-menu-placement="bottom-end"
+                  data-kt-menu-overflow="true"
+                >
+                  <i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
+                </button>
+                <div
+                  class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px"
+                  data-kt-menu="true"
+                  style=""
+                >
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <div class="menu-content fs-6 text-gray-900 fw-bold px-3 py-4">
+                      Quick Actions
+                    </div>
+                  </div>
+                  <!--end::Menu item-->
+
+                  <!--begin::Menu separator-->
+                  <div class="separator mb-3 opacity-75"></div>
+                  <!--end::Menu separator-->
+
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> View </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Edit </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Delete </a>
+                  </div>
+                  <!--end::Menu item-->
+                </div>
+              </td>
+            </tr>
+            <tr class="odd">
+              <td>
+                <a
+                  href="/metronic8/demo1/apps/ecommerce/catalog/edit-product.html"
+                  class="text-gray-800 text-hover-primary"
+                  >#SRR-678</a
+                >
+              </td>
+
+              <td class="text-end">1 hour ago</td>
+
+              <td class="text-end">
+                <a href="#" class="text-gray-600 text-hover-primary">Robert Fox</a>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-success">Admin</span>
+              </td>
+
+              <td class="text-end">
+                <span class="text-gray-800 fw-bolder">27</span>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-warning">Pending</span>
+              </td>
+
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px"
+                  data-kt-menu-trigger="click"
+                  data-kt-menu-placement="bottom-end"
+                  data-kt-menu-overflow="true"
+                >
+                  <i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
+                </button>
+                <div
+                  class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px"
+                  data-kt-menu="true"
+                  style=""
+                >
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <div class="menu-content fs-6 text-gray-900 fw-bold px-3 py-4">
+                      Quick Actions
+                    </div>
+                  </div>
+                  <!--end::Menu item-->
+
+                  <!--begin::Menu separator-->
+                  <div class="separator mb-3 opacity-75"></div>
+                  <!--end::Menu separator-->
+
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> View </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Edit </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Delete </a>
+                  </div>
+                  <!--end::Menu item-->
+                </div>
+              </td>
+            </tr>
+            <tr class="even">
+              <td>
+                <a
+                  href="/metronic8/demo1/apps/ecommerce/catalog/edit-product.html"
+                  class="text-gray-800 text-hover-primary"
+                  >#PXF-534</a
+                >
+              </td>
+
+              <td class="text-end">3 hour ago</td>
+
+              <td class="text-end">
+                <a href="#" class="text-gray-600 text-hover-primary">Cody Fisher</a>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-dark">student</span>
+              </td>
+
+              <td class="text-end">
+                <span class="text-gray-800 fw-bolder">15</span>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-primary">Confirmed</span>
+              </td>
+
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px"
+                  data-kt-menu-trigger="click"
+                  data-kt-menu-placement="bottom-end"
+                  data-kt-menu-overflow="true"
+                >
+                  <i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
+                </button>
+                <div
+                  class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px"
+                  data-kt-menu="true"
+                  style=""
+                >
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <div class="menu-content fs-6 text-gray-900 fw-bold px-3 py-4">
+                      Quick Actions
+                    </div>
+                  </div>
+                  <!--end::Menu item-->
+
+                  <!--begin::Menu separator-->
+                  <div class="separator mb-3 opacity-75"></div>
+                  <!--end::Menu separator-->
+
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> View </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Edit </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Delete </a>
+                  </div>
+                  <!--end::Menu item-->
+                </div>
+              </td>
+            </tr>
+            <tr class="odd">
+              <td>
+                <a
+                  href="/metronic8/demo1/apps/ecommerce/catalog/edit-product.html"
+                  class="text-gray-800 text-hover-primary"
+                  >#XGD-249</a
+                >
+              </td>
+
+              <td class="text-end">2 day ago</td>
+
+              <td class="text-end">
+                <a href="#" class="text-gray-600 text-hover-primary">Arlene McCoy</a>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-info">instructor</span>
+              </td>
+
+              <td class="text-end">
+                <span class="text-gray-800 fw-bolder">40</span>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-primary">Confirmed</span>
+              </td>
+
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px"
+                  data-kt-menu-trigger="click"
+                  data-kt-menu-placement="bottom-end"
+                  data-kt-menu-overflow="true"
+                >
+                  <i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
+                </button>
+                <div
+                  class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px"
+                  data-kt-menu="true"
+                  style=""
+                >
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <div class="menu-content fs-6 text-gray-900 fw-bold px-3 py-4">
+                      Quick Actions
+                    </div>
+                  </div>
+                  <!--end::Menu item-->
+
+                  <!--begin::Menu separator-->
+                  <div class="separator mb-3 opacity-75"></div>
+                  <!--end::Menu separator-->
+
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> View </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Edit </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Delete </a>
+                  </div>
+                  <!--end::Menu item-->
+                </div>
+              </td>
+            </tr>
+            <tr class="even">
+              <td>
+                <a
+                  href="/metronic8/demo1/apps/ecommerce/catalog/edit-product.html"
+                  class="text-gray-800 text-hover-primary"
+                  >#SKP-035</a
+                >
+              </td>
+
+              <td class="text-end">2 day ago</td>
+
+              <td class="text-end">
+                <a href="#" class="text-gray-600 text-hover-primary">Eleanor Pena</a>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-dark">Student</span>
+              </td>
+
+              <td class="text-end">
+                <span class="text-gray-800 fw-bolder">35</span>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-danger">Rejected</span>
+              </td>
+
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px"
+                  data-kt-menu-trigger="click"
+                  data-kt-menu-placement="bottom-end"
+                  data-kt-menu-overflow="true"
+                >
+                  <i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
+                </button>
+                <div
+                  class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px"
+                  data-kt-menu="true"
+                  style=""
+                >
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <div class="menu-content fs-6 text-gray-900 fw-bold px-3 py-4">
+                      Quick Actions
+                    </div>
+                  </div>
+                  <!--end::Menu item-->
+
+                  <!--begin::Menu separator-->
+                  <div class="separator mb-3 opacity-75"></div>
+                  <!--end::Menu separator-->
+
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> View </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Edit </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Delete </a>
+                  </div>
+                  <!--end::Menu item-->
+                </div>
+              </td>
+            </tr>
+            <tr class="odd">
+              <td>
+                <a
+                  href="/metronic8/demo1/apps/ecommerce/catalog/edit-product.html"
+                  class="text-gray-800 text-hover-primary"
+                  >#SKP-567</a
+                >
+              </td>
+
+              <td class="text-end">7 min ago</td>
+
+              <td class="text-end">
+                <a href="#" class="text-gray-600 text-hover-primary">Dan Wilson</a>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-dark">student</span>
+              </td>
+
+              <td class="text-end">
+                <span class="text-gray-800 fw-bolder">24</span>
+              </td>
+
+              <td class="text-end">
+                <span class="badge py-3 px-4 fs-7 badge-light-primary">Confirmed</span>
+              </td>
+
+              <td class="text-end">
+                <button
+                  class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px"
+                  data-kt-menu-trigger="click"
+                  data-kt-menu-placement="bottom-end"
+                  data-kt-menu-overflow="true"
+                >
+                  <i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
+                </button>
+                <div
+                  class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px"
+                  data-kt-menu="true"
+                  style=""
+                >
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <div class="menu-content fs-6 text-gray-900 fw-bold px-3 py-4">
+                      Quick Actions
+                    </div>
+                  </div>
+                  <!--end::Menu item-->
+
+                  <!--begin::Menu separator-->
+                  <div class="separator mb-3 opacity-75"></div>
+                  <!--end::Menu separator-->
+
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> View </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Edit </a>
+                  </div>
+                  <!--end::Menu item-->
+                  <!--begin::Menu item-->
+                  <div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Delete </a>
+                  </div>
+                  <!--end::Menu item-->
+                </div>
+              </td>
+            </tr>
+          </tbody>
+          <!--end::Table body-->
+        </table>
+      </div>
+      <div class="row">
+        <div
+          class="col-sm-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start"
+        ></div>
+        <div
+          class="col-sm-12 col-md-7 d-flex align-items-center justify-content-center justify-content-md-end"
+        ></div>
+      </div>
+    </div>
+    <!--end::Table-->
+  </div>
+  <div class="container m-3">
+    <ul class="pagination">
+        <li class="page-item previous disabled"><a href="#" class="page-link"><i class="previous"></i></a></li>
+        <li class="page-item text-dark"><a href="#" class="page-link">1</a></li>
+        <li class="page-item active"><a href="#" class="page-link">2</a></li>
+        <li class="page-item "><a href="#" class="page-link">3</a></li>
+        <li class="page-item "><a href="#" class="page-link">...</a></li>
+        <li class="page-item "><a href="#" class="page-link">5</a></li>
+        <li class="page-item "><a href="#" class="page-link">6</a></li>
+        <li class="page-item next"><a href="#"  class="page-link"><i class="next"></i></a></li>
+    </ul>
+</div>
+  <!--end::Card body-->
+</div>
+
+
