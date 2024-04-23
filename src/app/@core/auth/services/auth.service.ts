@@ -29,7 +29,7 @@ export class AuthService implements OnDestroy {
   }
 
   getUserType(){
-    return "instructor"
+    return "admin"
   }
 
 }

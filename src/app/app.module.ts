@@ -22,17 +22,13 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 function des(data: string) {
-  return CryptoJS.AES.decrypt(
-    data,
-    environment.stateMangementSecretKey
-  ).toString(CryptoJS.enc.Utf8);
+  return CryptoJS.AES.decrypt(data, environment.stateMangementSecretKey).toString(
+    CryptoJS.enc.Utf8
+  );
 }
 
 function enc(data: string) {
-  return CryptoJS.AES.encrypt(
-    data,
-    environment.stateMangementSecretKey
-  ).toString();
+  return CryptoJS.AES.encrypt(data, environment.stateMangementSecretKey).toString();
 }
 
 @NgModule({
@@ -60,15 +56,7 @@ function enc(data: string) {
     NgxsModule.forRoot([AuthBaseState]),
     NgxsResetPluginModule.forRoot(),
     NgxsStoragePluginModule.forRoot({
-      key: [
-        'auth',
-        'campaign',
-        'items',
-        'promoter',
-        'workspace',
-        'financeManager',
-        'dashboard'
-      ],
+      key: ['auth', 'campaign', 'items', 'promoter', 'workspace', 'financeManager', 'dashboard'],
       deserialize: (state: string) => JSON.parse(des(state)),
       serialize: (state: any) => enc(JSON.stringify(state)),
     }),
@@ -80,4 +68,4 @@ function enc(data: string) {
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -19,6 +19,8 @@ export const environment = {
   integrationApiUrl: 'https://test.indana.io/api/integration',
   insightsApiUrl: 'https://test.indana.io/api/insight',
   integrationCallbackUrl: 'http://localhost:4200/settings/resync-store',
+
+  userManagemntUrl: 'http://localhost:5321/api/UserManagement',
   stateMangementSecretKey: '123asdzxc',
 };
 
