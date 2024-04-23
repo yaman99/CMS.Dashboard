@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersManagementRoutingModule } from './users-management-routing.module';
 import { UsersManagementComponent } from './users-management.component';
 import { ListComponent } from './list/list.component';
@@ -18,7 +18,8 @@ import { ViewComponent } from './view/view.component';
   imports: [
     CommonModule,
     UsersManagementRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class UsersManagementModule { }
