@@ -21,14 +21,11 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   // hasError: boolean;
   isLoading$: Observable<boolean>;
   selectedUserType: string;
-  accountCreated = new BehaviorSubject<boolean>(false);
   @Select(AuthBaseState.getSuccessMessage) successMessage$: Observable<string>
   // private fields
   private unsubscribe: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
 
   constructor(private fb: FormBuilder, private stateBus: IBus, private route: ActivatedRoute) {
-    // redirect to home if already logged in
-    this.selectedUserType = this.route.snapshot.queryParams['type'] ?? 'promoter';
   }
 
   ngOnInit(): void {
@@ -45,15 +42,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   initForm() {
     this.registrationForm = this.fb.group(
       {
-        firstName: [
-          '',
-          Validators.compose([
-            Validators.required,
-            Validators.minLength(3),
-            Validators.maxLength(100),
-          ]),
-        ],
-        lastName: [
+        name: [
           '',
           Validators.compose([
             Validators.required,
@@ -88,7 +77,7 @@ export class RegistrationComponent implements OnInit, OnDestroy {
           ]),
         ],
         isCheckBoxChecked: [false, Validators.requiredTrue],
-        userType: [this.selectedUserType ?? '', Validators.required],
+
       },
       {
         validators: MatchPassword(),
@@ -97,24 +86,20 @@ export class RegistrationComponent implements OnInit, OnDestroy {
   }
   selectUserType(userType: string) {
     this.selectedUserType = userType;
+    console.log(this.selectedUserType);
 
   }
 
   submit() {
     let model: SignUpModel = {
       email: this.f.email.value,
-      firstName: this.f.firstName.value,
-      lastName: this.f.lastName.value,
+      name: this.f.name.value,
       password: this.f.password.value,
       confirmPassword: this.f.cPassword.value,
-      userType: this.f.userType.value,
+      userType: this.selectedUserType,
     };
-    const sub = this.stateBus.excuteAction(new AuthStateActions.SignUp(model)).subscribe({
-      next: () => {
-        this.accountCreated.next(true);
-      },
-    });
-    this.unsubscribe.push(sub);
+    this.stateBus.excuteAction(new AuthStateActions.SignUp(model));
+
   }
   clearAlertMessages(){
     this.stateBus.excuteAction(new AuthStateActions.ClearSuccessMessage());

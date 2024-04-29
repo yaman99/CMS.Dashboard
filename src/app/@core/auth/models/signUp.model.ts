@@ -1,7 +1,6 @@
 export class SignUpModel{
   email:string;
-  firstName:string;
-  lastName:string;
+  name:string;
   userType:string;
   password:string;
   confirmPassword:string;

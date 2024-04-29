@@ -116,6 +116,7 @@ export class AuthBaseState extends LoadingHandler<AuthStateModel> implements Ngx
     return this.authHttpService.login(payload.email, payload.password).pipe(
       tap({
         next: (res) => {
+
           ctx.dispatch(new AuthStateActions.LoginSuccess(res));
         },
         error: (err) => {
@@ -134,6 +135,7 @@ export class AuthBaseState extends LoadingHandler<AuthStateModel> implements Ngx
           ctx.patchState({
             successMessage: "AUTH.ALERT.SIGNUP.SUCCESS"
           })
+          ctx.dispatch(new Navigate(['/auth/login']));
         },
         finalize: () => this.stopLoading(ctx),
       })
@@ -158,6 +160,7 @@ export class AuthBaseState extends LoadingHandler<AuthStateModel> implements Ngx
 
   @Action(AuthStateActions.LoginSuccess)
   onLoginSuccess(ctx: StateContext<AuthStateModel>, { result }: AuthStateActions.LoginSuccess) {
+
     const tokenClaims = this.authService.getTokenClaims(result.accessToken!);
     ctx.patchState({
       accessToken: result.accessToken,
@@ -185,7 +188,11 @@ export class AuthBaseState extends LoadingHandler<AuthStateModel> implements Ngx
   onLoginRedirect(ctx: StateContext<AuthStateModel>) {
     const state = ctx.getState();
     if (state.accessToken !== null) {
-      ctx.dispatch(new AuthStateActions.GetUser());
+      // // console.log(ctx.getState().userType);
+      // if(ctx.getState().userType === "admin"){
+      // }
+      ctx.dispatch(new Navigate(['/dashboard/list']));
+      // ctx.dispatch(new AuthStateActions.GetUser());
     }
   }
   @Action(AuthStateActions.LogoutRedirect)
