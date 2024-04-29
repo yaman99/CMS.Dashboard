@@ -3,6 +3,7 @@ import { Observable, BehaviorSubject, of, Subscription } from 'rxjs';
 import { TokenClaimsModel } from '../models/tokenClaims.model';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { IBus } from '@shared/state-bus/IBus';
+import { AuthBaseState } from '../states/auth.state';
 
 
 @Injectable({
@@ -29,7 +30,7 @@ export class AuthService implements OnDestroy {
   }
 
   getUserType(){
-    return "admin"
+    return this.stateBus.getSnapshot(AuthBaseState.getUserType)!;
   }
 
 }

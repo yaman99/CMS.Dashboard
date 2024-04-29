@@ -57,8 +57,8 @@ function enc(data: string) {
     NgxsResetPluginModule.forRoot(),
     NgxsStoragePluginModule.forRoot({
       key: ['auth', 'campaign', 'items', 'promoter', 'workspace', 'financeManager', 'dashboard'],
-      deserialize: (state: string) => JSON.parse(des(state)),
-      serialize: (state: any) => enc(JSON.stringify(state)),
+      // deserialize: (state: string) => JSON.parse(des(state)),
+      // serialize: (state: any) => enc(JSON.stringify(state)),
     }),
     NgxsLoggerPluginModule.forRoot({
       disabled: environment.production,

@@ -7,7 +7,7 @@ export const environment = {
   appVersion: 'v8.0.38',
   USERDATA_KEY: 'authf649fc9a5f55',
   isMockEnabled: true,
-  authApiUrl: 'https://test.indana.io/api/auth',
+  authApiUrl: 'http://localhost:5321/api/Identity',
   workspaceApiUrl: 'https://test.indana.io/api/workspace',
   itemApiUrl: 'https://test.indana.io/api/item',
   campaignApiUrl: 'https://test.indana.io/api/campaign',

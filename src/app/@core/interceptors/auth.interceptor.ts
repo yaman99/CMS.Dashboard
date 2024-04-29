@@ -20,15 +20,17 @@ export class AuthInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
+    console.log('xxxxxxxxxxxxxxxxx');
+    
     return this.store.selectOnce(AuthBaseState.getToken).pipe(
       switchMap((token: string | null) => {
-        if (
-          this.jwtHelper.isTokenExpired() &&
-          !request.url.includes('Identity') &&
-          token
-        ) {
-          this.store.dispatch(new AuthStateActions.RefreshToken());
-        }
+        // if (
+        //   this.jwtHelper.isTokenExpired() &&
+        //   !request.url.includes('Identity') &&
+        //   token
+        // ) {
+        //   this.store.dispatch(new AuthStateActions.RefreshToken());
+        // }
         return next.handle(this.InjectToken(request, token!));
       })
     );

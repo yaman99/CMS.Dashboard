@@ -10,7 +10,7 @@ import { UpdatePhoneModel } from '../../models/updateUser.model';
 import { UpdateEmailModel } from '../../models/updateEmail.model';
 import { SetPasswordRequest } from '../../models/SetPasswordRequest';
 
-const API_AUTH_URL = `${environment.authApiUrl}/Identity`;
+const API_AUTH_URL = `${environment.authApiUrl}`;
 const API_INTEGRATION_URL = `${environment.integrationApiUrl}`;
 
 @Injectable({
