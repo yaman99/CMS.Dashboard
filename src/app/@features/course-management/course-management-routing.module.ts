@@ -4,6 +4,7 @@ import { CourseManagementComponent } from './course-management.component';
 import { StudentListComponent } from './list/student-list/student-list.component';
 import { ListComponent } from '@features/course-management/list/list.component';
 import { ViewComponent } from './view/view.component';
+import { AddCourseDetailsComponent } from './view/add-course-details/add-course-details.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path:"view",
         component:ViewComponent,
+      },
+      {
+        path:"AddDetails",
+        component:AddCourseDetailsComponent,
       },
       {
         path:'',
