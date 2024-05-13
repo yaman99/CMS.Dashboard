@@ -11,6 +11,7 @@ import { StudentViewComponent } from './view/student-view/student-view.component
 import { AdminViewComponent } from './view/admin-view/admin-view.component';
 import { InstructorViewComponent } from './view/instructor-view/instructor-view.component';
 import { AddCourseDetailsComponent } from './view/add-course-details/add-course-details.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AddCourseDetailsComponent } from './view/add-course-details/add-course-
   imports: [
     CommonModule,
     CourseManagementRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class CourseManagementModule { }
