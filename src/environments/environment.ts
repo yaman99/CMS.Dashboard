@@ -21,6 +21,7 @@ export const environment = {
   integrationCallbackUrl: 'http://localhost:4200/settings/resync-store',
 
   userManagemntUrl: 'http://localhost:5321/api/UserManagement',
+  coursesManagementUrl: 'http://localhost:5321/api/CoursesManagement',
   stateMangementSecretKey: '123asdzxc',
 };
 

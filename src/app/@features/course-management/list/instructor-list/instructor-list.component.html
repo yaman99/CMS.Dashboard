@@ -167,13 +167,13 @@
 
 
 <!-- add new course pop up -->
-<ng-template #content let-model>
+<ng-template #content let-modal>
   <div class="modal-content rounded">
     <!--begin::Modal header-->
     <div class="modal-header pb-0 border-0 justify-content-end">
       <!--begin::Close-->
 
-      <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+      <div class="btn btn-sm btn-icon btn-active-color-primary" (click)="modal.dismiss('Cross click')">
         <i class="ki-duotone ki-cross fs-1"
           ><span class="path1"></span><span class="path2"></span
         ></i>
@@ -185,7 +185,7 @@
     <!--begin::Modal body-->
     <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
       <!--begin:Form-->
-      <form id="kt_modal_new_target_form" class="form fv-plugins-bootstrap5 fv-plugins-framework">
+      <form [formGroup]="Courseform">
         <!--begin::Heading-->
         <div class="mb-13 text-center">
           <!--begin::Title-->
@@ -206,10 +206,6 @@
 
             <span
               class="ms-1"
-              data-bs-toggle="tooltip"
-              aria-label="Specify a target name for future usage and reference"
-              data-bs-original-title="Specify a target name for future usage and reference"
-              data-kt-initialized="1"
             >
               <i class="ki-duotone ki-information-5 text-gray-500 fs-6"
                 ><span class="path1"></span><span class="path2"></span
@@ -222,7 +218,7 @@
             type="text"
             class="form-control form-control-solid"
             placeholder="Enter Course Title"
-            name="course_title"
+            formControlName="title"
           />
           <div
             class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
@@ -237,14 +233,7 @@
             <label class="required fs-6 fw-semibold mb-2">Course Subject</label>
 
             <select
-              class="form-select form-select-solid select2-hidden-accessible"
-              data-control="select2"
-              data-hide-search="true"
-              data-placeholder="Select a course subject"
-              data-select2-id="select2-data-13-c6ki"
-              tabindex="-1"
-              aria-hidden="true"
-              data-kt-initialized="1"
+              class="form-select form-select-solid select2-hidden-accessible" formControlName="subject"
             >
               <option class="menu-item" data-select2-id="select2-data-15-vn7g">
                 Select Subject...
@@ -264,7 +253,7 @@
           <textarea
             class="form-control form-control-solid"
             rows="3"
-            name="target_details"
+            formControlName="description"
             placeholder="Type Target Details"
           >
           </textarea>
@@ -272,10 +261,10 @@
 
 
         <div class="modal-footer">
-          <button type="reset" id="kt_modal_new_target_cancel" class="btn btn-light me-3">
+          <button (click)="modal.dismiss('Cross click')" class="btn btn-light me-3">
             Cancel
           </button>
-          <button type="submit" id="kt_modal_new_target_submit" class="btn btn-primary">
+          <button class="btn btn-primary" (click)="modal.close('save')">
             <span class="indicator-label"> Submit </span>
             <span class="indicator-progress">
               Please wait...
