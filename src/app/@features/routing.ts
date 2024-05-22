@@ -3,6 +3,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { UsersManagementComponent } from './users-management/users-management.component';
 import { CourseManagementComponent } from './course-management/course-management.component';
 import { CommunityManagementComponent } from './community-management/community-management.component';
+import { ExploreCommunitiesComponent } from './community-management/explore/explore-communities/explore-communities.component';
 // import { IntegrationExpiredGuard } from '@core/guards/integration-expired.guard';
 
 const Routing: Routes = [
@@ -30,6 +31,10 @@ const Routing: Routes = [
   {
     path: 'courses-library',
     loadChildren: () => import('./courses-library/courses-library.module').then((m) => m.CoursesLibraryModule)
+  },
+  {
+    path: 'explore-communities',
+    component: ExploreCommunitiesComponent,
   },
   {
     path: '',

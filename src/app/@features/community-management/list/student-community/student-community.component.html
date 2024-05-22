@@ -1,127 +1,105 @@
-<div class="card card-bordered w-100">
-  <!--begin::Body-->
-  <div class="card-body">
-    <!--begin::Wrapper-->
-    <div class="w-100 d-flex flex-stack mb-8">
-      <!--begin::Container-->
-      <div class="d-flex align-items-center f">
-        <!--begin::Author-->
-        <div class="symbol symbol-50px me-5">
-          <div class="symbol-label fs-1 fw-bold bg-light-success text-success">S</div>
-        </div>
-        <!--end::Author-->
-
-        <!--begin::Info-->
-        <div class="d-flex flex-column fw-semibold fs-5 text-gray-600 text-gray-900">
-          <!--begin::Text-->
-          <div class="d-flex align-items-center">
-            <!--begin::Username-->
-            <a
-              href="/metronic8/demo1/pages/user-profile/overview.html"
-              class="text-gray-800 fw-bold text-hover-primary fs-5 me-3"
-              >Sandra Piquet</a
-            >
-            <!--end::Username-->
-
-            <span class="m-0"></span>
-          </div>
-          <!--end::Text-->
-
-          <!--begin::Date-->
-          <span class="text-muted fw-semibold fs-6">2 Days ago</span>
-          <!--end::Date-->
-        </div>
-        <!--end::Info-->
+<div class="row g-5 g-xl-10">
+  <!--begin::Col-->
+  <div class="col-md-4 mb-5 mb-xl-10">
+    <!--begin::Slider Widget 2-->
+    <div class="card card-flush carousel carousel-custom carousel-stretch slide h-xl-100">
+      <!--begin::Header-->
+      <div class="card-header pt-5">
+        <!--begin::Title-->
+        <h4 class="card-title d-flex align-items-start flex-column">
+          <span class="card-label fw-bold text-gray-800">Community name here</span>
+          <span class="text-gray-500 mt-1 fw-bold fs-7">Created at : 17/2/2024 </span>
+        </h4>
       </div>
-      <!--end::Container-->
-
-      <!--begin::Actions-->
-      <div class="m-0">
-        <button class="btn btn-color-gray-500 btn-active-color-primary p-0 fw-bold">Reply</button>
-      </div>
-      <!--end::Actions-->
-    </div>
-    <!--end::Wrapper-->
-
-    <!--begin::Desc-->
-    <p class="fw-normal fs-5 text-gray-700 m-0">
-      I run a team of 20 product managers, developers, QA and UX Previously we designed everything
-      ourselves.
-    </p>
-    <!--end::Desc-->
-  </div>
-  <!--end::Body-->
-</div>
-
-<button
-  class="btn btn-primary position-fixed bottom-0 end-0 p-0 rounded m-4"
-  style="width: 50px; height: 50px"
-  (click)="PostToCommunity(content)"
->
-  <i class="fa-solid fa-plus fs-3"></i>
-</button>
-
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Add a new Post</h4>
-    <button
-      type="button"
-      class="btn-close"
-      aria-label="Close"
-      (click)="modal.dismiss('Cross click')"
-    ></button>
-  </div>
-  <div class="modal-body">
-    <div class="card card-flush mb-10">
-      <div class="card-header justify-content-start align-items-center pt-4">
-        <!--begin::Photo-->
-        <div class="symbol symbol-45px me-5">
-          <div
-            _ngcontent-yux-c64=""
-            class="symbol-label fs-1 fw-bold bg-light-success text-success"
-          >
-            J
-          </div>
-        </div>
-        <!--end::Photo-->
-
-        <span class="text-gray-500 fw-semibold fs-6">What’s on your mind, Jerry?</span>
-      </div>
-
       <!--end::Header-->
 
       <!--begin::Body-->
-      <div class="card-body pt-2 pb-0">
-        <!--begin::Input-->
-        <textarea
-          class="form-control bg-transparent border-0 px-0"
-          id="kt_social_feeds_post_input"
-          name="message"
-          data-kt-autosize="true"
-          rows="1"
-          placeholder="Type your message..."
-          data-kt-initialized="1"
-          style="
-            overflow: hidden;
-            overflow-wrap: break-word;
-            resize: none;
-            text-align: start;
-            height: 58px;
-          "
-        >
-        </textarea>
-        <!--end::Input-->
-      </div>
-     
+      <div class="card-body py-6">
+        <!--begin::Carousel-->
 
+
+          <!--begin::Wrapper-->
+          <div class="d-flex align-items-center mb-9">
+            <!--begin::Symbol-->
+            <div class="symbol symbol-70px symbol-circle me-5">
+              <div class="symbol-label fs-1 fw-bold bg-light-primary text-primary">R</div>
+            </div>
+            <!--end::Symbol-->
+
+            <!--begin::Info-->
+            <div class="m-0">
+              <!--begin::Subtitle-->
+              <h4 class="text-gray-700 mb-3">Instructor name here</h4>
+              <!--end::Subtitle-->
+
+              <!--begin::Items-->
+              <div class="d-flex d-grid gap-5">
+                <!--begin::Item-->
+                <div class="d-flex flex-column flex-shrink-0 me-4">
+                  <!--begin::Section-->
+                  <span class="d-flex align-items-center fs-7 fw-bold text-gray-500 mb-2">
+                    <i class="ki-duotone ki-right-square fs-6 text-gray-600 me-2"
+                      ><span class="path1"></span><span class="path2"></span
+                    ></i>
+                    Programming
+                  </span>
+                  <!--end::Section-->
+
+                  <!--begin::Section-->
+                  <span class="d-flex align-items-center text-gray-500 fw-bold fs-7">
+                    <i class="ki-duotone ki-right-square fs-6 text-gray-600 me-2"
+                      ><span class="path1"></span><span class="path2"></span
+                    ></i>
+                    146 messages
+                  </span>
+                  <!--end::Section-->
+                </div>
+                <!--end::Item-->
+
+                <!--begin::Item-->
+                <div class="d-flex flex-column flex-shrink-0">
+                  <!--begin::Section-->
+                  <span class="d-flex align-items-center fs-7 fw-bold text-gray-500 mb-2">
+                    <i class="ki-duotone ki-right-square fs-6 text-gray-600 me-2"
+                      ><span class="path1"></span><span class="path2"></span
+                    ></i>
+                    50 Min
+                  </span>
+                  <!--end::Section-->
+
+                  <!--begin::Section-->
+                  <span class="d-flex align-items-center text-gray-500 fw-bold fs-7">
+                    <i class="ki-duotone ki-right-square fs-6 text-gray-600 me-2"
+                      ><span class="path1"></span><span class="path2"></span
+                    ></i>
+                    72 students
+                  </span>
+                  <!--end::Section-->
+                </div>
+                <!--end::Item-->
+              </div>
+              <!--end::Items-->
+            </div>
+            <!--end::Info-->
+          </div>
+          <!--end::Wrapper-->
+
+          <!--begin::Action-->
+          <div class="m-0 text-center">
+            <!-- <button type="button" class="btn btn-sm btn-light me-2 mb-2">Details</button> -->
+        
+            <a  class="btn btn-sm btn-success mb-2" routerLink="../view" >View Community</a>
+        </div>
+        
+          <!--end::Action-->
+        </div>
+        <!--end::Item-->
+      </div>
+      <!--end::Carousel-->
     </div>
+   
+
+    <!--end::Body-->
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="modal.close('Close click')">
-      Close
-    </button>
-    <button type="button" class="btn btn-primary" (click)="modal.close('Close click')">
-        Post
-      </button>
-  </div>
-</ng-template>
+  <!--end::Slider Widget 2-->
+
