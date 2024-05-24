@@ -108,7 +108,8 @@
                     >{{ user.isActive }}</span
                   >
                 </td>
-                <td class="text-end">
+                <!-- old version -->
+                <!-- <td class="text-end">
                   <button
                     class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px"
                     data-kt-menu-trigger="click"
@@ -122,19 +123,13 @@
                     data-kt-menu="true"
                     style=""
                   >
-                    <!--begin::Menu item-->
+
                     <div class="menu-item px-3">
                       <div class="menu-content fs-6 text-gray-900 fw-bold px-3 py-4">
                         Quick Actions
                       </div>
                     </div>
-                    <!--end::Menu item-->
-
-                    <!--begin::Menu separator-->
                     <div class="separator mb-3 opacity-75"></div>
-                    <!--end::Menu separator-->
-
-                    <!--begin::Menu item-->
                     <div class="menu-item px-3">
                       <a
                         routerLink="../view"
@@ -143,19 +138,51 @@
                         View
                       </a>
                     </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
                     <div class="menu-item px-3">
                       <app-form [mode]="'edit'" [user]="user"></app-form>
                     </div>
-                    <!--end::Menu item-->
-                    <!--begin::Menu item-->
+
                     <div class="menu-item px-3">
                       <a (click)="deleteUser(user.id)" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4">
                         Delete
                       </a>
                     </div>
-                    <!--end::Menu item-->
+
+                  </div>
+                </td> -->
+
+
+
+
+                <!-- new version -->
+                <td class="text-center">
+                  <!--begin::Icon-->
+                  <div class="d-flex justify-content-center flex-shrink-0">
+                    <!--View-->
+                    <a
+                      routerLink="../view"
+                      class="btn btn-icon btn-color-muted btn-bg-light btn-active-color-primary btn-sm me-3"
+                    >
+                      <i class="ki-duotone bi bi-eye fs-3"
+                      ></i>
+                    </a>
+                    <!-- Edit -->
+                    <div>
+                      <app-form [mode]="'edit'" [user]="user"></app-form>
+                      <a
+                      class="btn btn-icon btn-color-muted btn-bg-light btn-active-color-primary btn-sm me-3"
+                    >
+                    <i class="far fa-edit icon-xl"></i>
+                    </a>
+                    </div>
+                   
+                    <!-- Delete -->
+                    <a
+                    (click)="deleteUser(user.id)"
+                      class="btn btn-icon btn-color-muted btn-bg-light btn-active-color-primary btn-sm"
+                    >
+                      <i class="far fa-trash-alt icon-xl"></i>
+                    </a>
                   </div>
                 </td>
               </tr>
@@ -189,3 +216,7 @@
 </div> -->
   <!--end::Card body-->
 </div>
+
+
+
+

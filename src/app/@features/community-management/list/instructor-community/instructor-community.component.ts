@@ -8,7 +8,8 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class InstructorCommunityComponent {
   private modalService = inject(NgbModal);
-	PostToCommunity(content: TemplateRef<any>) {
+  addCommunityPopup(content: TemplateRef<any>) {
 		this.modalService.open(content, { centered: true });
 	}
+  
 }
