@@ -8,6 +8,7 @@ import { StudentCommunityComponent } from './list/student-community/student-comm
 import { AdminCommunityComponent } from './list/admin-community/admin-community.component';
 import { ExploreCommunitiesComponent } from './explore/explore-communities/explore-communities.component';
 import { ViewCommuntiyComponent } from './view/view-communtiy/view-communtiy.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ViewCommuntiyComponent } from './view/view-communtiy/view-communtiy.com
   ],
   imports: [
     CommonModule,
-    CommunityManagementRoutingModule
+    CommunityManagementRoutingModule,
+    NgbDropdownModule
   ]
 })
 export class CommunityManagementModule { }

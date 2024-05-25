@@ -179,7 +179,12 @@
 </ng-template>
 
 <ng-container *ngIf="mode === 'edit'">
-  <a  (click)="openLg(content)" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"> Edit </a>
+  <a
+  (click)="openLg(content)"
+  class="btn btn-icon btn-color-muted btn-bg-light btn-active-color-primary btn-sm me-3"
+>
+<i class="far fa-edit icon-xl"></i>
+</a>
 </ng-container>
 
 <ng-container *ngIf="mode === 'add'">

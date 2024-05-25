@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./explore-communities.component.scss']
 })
 export class ExploreCommunitiesComponent {
-
+  isCourseAdded:boolean = false;
+  joinCourse(){
+this.isCourseAdded=true;
+  }
 }
