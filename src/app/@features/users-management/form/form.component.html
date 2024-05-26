@@ -1,12 +1,13 @@
 <ng-template #content let-modal>
   <div class="modal-header">
-    <h4 class="modal-title">Add New User</h4>
+    <h4 class="modal-title">{{ mode === 'add' ? 'Add New User' : 'Update User Details' }}</h4>
     <button
       type="button"
       class="btn-close"
       aria-label="Close"
       (click)="modal.dismiss('Cross click')"
-    ></button>
+    >
+  </button>
   </div>
   <div class="modal-body">
     <form
@@ -15,21 +16,12 @@
       novalidate="novalidate"
       [formGroup]="userManagementFormGroup"
     >
-      <!--begin::Card body-->
       <div class="card-body border-top p-9">
-
-
         <!--begin::Input group-->
         <div class="row mb-6">
-          <!--begin::Label-->
           <label class="col-lg-4 col-form-label required fw-semibold fs-6">Full Name</label>
-          <!--end::Label-->
-
-          <!--begin::Col-->
           <div class="col-lg-8">
-            <!--begin::Row-->
             <div class="row">
-              <!--begin::Col-->
               <div class="col-lg-6 fv-row fv-plugins-icon-container">
                 <input
                   type="text"
@@ -41,9 +33,6 @@
                   class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
                 ></div>
               </div>
-              <!--end::Col-->
-
-              <!--begin::Col-->
               <div class="col-lg-6 fv-row fv-plugins-icon-container">
                 <input
                   type="text"
@@ -55,31 +44,15 @@
                   class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
                 ></div>
               </div>
-              <!--end::Col-->
             </div>
-            <!--end::Row-->
           </div>
-          <!--end::Col-->
         </div>
-        <!--end::Input group-->
+
     <!--begin::Input group-->
     <div class="row mb-6">
-      <!--begin::Label-->
       <label class="col-lg-4 col-form-label fw-semibold fs-6">
         <span class="required">email</span>
-
-        <span
-          class="ms-1"
-         
-        >
-          <i class="ki-duotone ki-information-5 text-gray-500 fs-6"
-            ><span class="path1"></span><span class="path2"></span
-            ><span class="path3"></span></i
-        ></span>
       </label>
-      <!--end::Label-->
-
-      <!--begin::Col-->
       <div class="col-lg-8 fv-row fv-plugins-icon-container">
         <input
           type="email"
@@ -91,12 +64,9 @@
           class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
         ></div>
       </div>
-      <!--end::Col-->
     </div>
-    <!--end::Input group-->
         <!--begin::Input group-->
         <div class="row mb-6">
-          <!--begin::Label-->
           <label class="col-lg-4 col-form-label fw-semibold fs-6">
             <span class="required">Contact Phone</span>
 
@@ -112,9 +82,6 @@
                 ><span class="path3"></span></i
             ></span>
           </label>
-          <!--end::Label-->
-
-          <!--begin::Col-->
           <div class="col-lg-8 fv-row fv-plugins-icon-container">
             <input
               type="tel"
@@ -127,20 +94,12 @@
               class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
             ></div>
           </div>
-          <!--end::Col-->
         </div>
-        <!--end::Input group-->
-    
 
         <!--begin::Input group-->
         <div class="row mb-6">
-          <!--begin::Label-->
           <label class="col-lg-4 col-form-label required fw-semibold fs-6">User Type</label>
-          <!--end::Label-->
-
-          <!--begin::Col-->
           <div class="col-lg-8 fv-row fv-plugins-icon-container">
-            <!--begin::Input-->
             <select
               class="form-select form-select-solid form-select-lg select2-hidden-accessible" formControlName="userType"
 
@@ -154,18 +113,12 @@
               class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
             ></div>
           </div>
-          <!--end::Col-->
         </div>
-        <!--end::Input group-->
-
 
       </div>
-      <!--end::Card body-->
-      <input type="hidden" />
     </form>
     <!--end::Form-->
   </div>
-  <!--end::Content-->
   <br />
 
   <div class="modal-footer">
@@ -198,3 +151,4 @@
   </button>
   <!--end::Add user-->
 </ng-container>
+
