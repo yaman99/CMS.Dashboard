@@ -1,7 +1,7 @@
 <!-- <app-student-community *ngIf="userType === 'student'"></app-student-community>
 <app-admin-community *ngIf="userType === 'admin'"></app-admin-community>
 <app-instructor-community *ngIf="userType === 'instructor'"></app-instructor-community> -->
-<div class="container mb-5 d-flex align-items-center justify-content-between">
+<div *ngIf="userType === 'admin' || userType === 'instructor'" class="container mb-5 d-flex align-items-center justify-content-between">
   <h2 class="mb-0">Community Management</h2>
   <button class="btn btn-sm btn-primary fw-bold" (click)="addCommunityPopup(content)">
     Create Community
@@ -32,7 +32,7 @@
             
             </button>
         </div>
-        <div ngbDropdown  *ngIf="userType === 'instructor' || 'admin'"  class="card-toolbar" #myDropdown="ngbDropdown">
+        <div ngbDropdown  *ngIf="userType === 'admin' || userType === 'instructor'"  class="card-toolbar" #myDropdown="ngbDropdown">
           <button
        
             class="btn btn-icon btn-color-gray-500 btn-active-color-primary justify-content-end"
