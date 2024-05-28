@@ -1,50 +1,43 @@
 <div class="row g-5 g-xl-10">
-  <!--begin::Col-->
-  <div class="col-md-4 mb-5 mb-xl-10">
-    <!--begin::Slider Widget 2-->
-    <div class="card card-flush carousel carousel-custom carousel-stretch slide h-xl-100">
-      <!--begin::Header-->
-      <div class="card-header pt-5">
-        <!--begin::Title-->
-        <h4 class="card-title d-flex align-items-start flex-column">
-          <span class="card-label fw-bold text-gray-800">Community name here</span>
-          <span class="text-gray-500 mt-1 fw-bold fs-7">Created at : 17/2/2024 </span>
-        </h4>
-      </div>
-      <!--end::Header-->
+    <!-- First card -->
+    <div class="col-md-4 mb-5 mb-xl-10">
+      <div class="card card-flush carousel carousel-custom carousel-stretch slide h-xl-100">
+        <!--begin::Header-->
+        <div class="card-header pt-5">
+          <!--begin::Title-->
+          <h4 class="card-title d-flex align-items-start flex-column">
+            <span class="card-label fw-bold text-gray-800">Community name here</span>
+            <span class="text-gray-500 mt-1 fw-bold fs-7">Programming </span>
+          </h4>
+        </div>
 
-      <!--begin::Body-->
-      <div class="card-body py-6">
-        <!--begin::Carousel-->
-
-
-          <!--begin::Wrapper-->
+  
+        <!--begin::Body-->
+        <div class="card-body py-6">
           <div class="d-flex align-items-center mb-9">
-            <!--begin::Symbol-->
+
             <div class="symbol symbol-70px symbol-circle me-5">
               <div class="symbol-label fs-1 fw-bold bg-light-primary text-primary">R</div>
             </div>
-            <!--end::Symbol-->
 
-            <!--begin::Info-->
             <div class="m-0">
               <!--begin::Subtitle-->
               <h4 class="text-gray-700 mb-3">Instructor name here</h4>
               <!--end::Subtitle-->
-
+  
               <!--begin::Items-->
               <div class="d-flex d-grid gap-5">
                 <!--begin::Item-->
                 <div class="d-flex flex-column flex-shrink-0 me-4">
                   <!--begin::Section-->
-                  <span class="d-flex align-items-center fs-7 fw-bold text-gray-500 mb-2">
-                    <i class="ki-duotone ki-right-square fs-6 text-gray-600 me-2"
-                      ><span class="path1"></span><span class="path2"></span
-                    ></i>
-                    Programming
-                  </span>
+                  <!-- <span class="d-flex align-items-center fs-7 fw-bold text-gray-500 mb-2">
+                      <i class="ki-duotone ki-right-square fs-6 text-gray-600 me-2"
+                        ><span class="path1"></span><span class="path2"></span
+                      ></i>
+                      Programming
+                    </span> -->
                   <!--end::Section-->
-
+  
                   <!--begin::Section-->
                   <span class="d-flex align-items-center text-gray-500 fw-bold fs-7">
                     <i class="ki-duotone ki-right-square fs-6 text-gray-600 me-2"
@@ -55,18 +48,18 @@
                   <!--end::Section-->
                 </div>
                 <!--end::Item-->
-
+  
                 <!--begin::Item-->
                 <div class="d-flex flex-column flex-shrink-0">
                   <!--begin::Section-->
-                  <span class="d-flex align-items-center fs-7 fw-bold text-gray-500 mb-2">
-                    <i class="ki-duotone ki-right-square fs-6 text-gray-600 me-2"
-                      ><span class="path1"></span><span class="path2"></span
-                    ></i>
-                    50 Min
-                  </span>
+                  <!-- <span class="d-flex align-items-center fs-7 fw-bold text-gray-500 mb-2">
+                      <i class="ki-duotone ki-right-square fs-6 text-gray-600 me-2"
+                        ><span class="path1"></span><span class="path2"></span
+                      ></i>
+                      50 Min
+                    </span> -->
                   <!--end::Section-->
-
+  
                   <!--begin::Section-->
                   <span class="d-flex align-items-center text-gray-500 fw-bold fs-7">
                     <i class="ki-duotone ki-right-square fs-6 text-gray-600 me-2"
@@ -82,24 +75,23 @@
             </div>
             <!--end::Info-->
           </div>
-          <!--end::Wrapper-->
-
-          <!--begin::Action-->
           <div class="m-0 text-center">
-            <!-- <button type="button" class="btn btn-sm btn-light me-2 mb-2">Details</button> -->
-        
-            <a  class="btn btn-sm btn-success mb-2" routerLink="../view" >View Community</a>
-        </div>
-        
+            <button 
+            type="button" 
+            class="btn btn-sm mb-2" 
+            [ngClass]="isCourseAdded ? 'btn-secondary' : 'btn-success'" 
+            [disabled]="isCourseAdded" 
+            (click)="!isCourseAdded && joinCourse()">
+            {{ isCourseAdded ? 'Joined Successfully' : 'Join Community' }}
+          </button>
+          </div>
+  
           <!--end::Action-->
         </div>
         <!--end::Item-->
       </div>
-      <!--end::Carousel-->
     </div>
-   
-
-    <!--end::Body-->
+  
+    <!--end::Carousel-->
   </div>
-  <!--end::Slider Widget 2-->
-
+  
