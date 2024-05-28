@@ -1,38 +1,69 @@
-<div _ngcontent-evw-c74="" class="card card-flush mb-5">
+<div class="card card-flush mb-5">
+  <form [formGroup]="Courseform">
     <div class="card col-md-12">
       <!-- Edit Button -->
-      <button class="btn btn-lg btn-primary" style="position: absolute; top: 20px; right: 20px;">Edit</button>
+      <button
+        (click)="onSave()"
+        class="btn btn-lg btn-primary"
+        style="position: absolute; top: 20px; right: 20px"
+      >
+        save
+      </button>
       <div class="row m-3">
         <!-- First Input -->
-        <div class="col-lg-5"> 
-          <label _ngcontent-rbc-c25="" class="col-form-label required fw-semibold fs-4">Course Title</label>
-          <div _ngcontent-rbc-c25="" class="fv-row fv-plugins-icon-container">
+
+        <!-- Second Input -->
+        <div class="col-lg-4">
+          <!-- Adjust the column width as needed -->
+          <label class="col-form-label required fw-semibold fs-4">Course Subject</label>
+          <div class="fv-row fv-plugins-icon-container">
+            <select
+              class="form-select form-select-solid select2-hidden-accessible"
+              formControlName="subject"
+            >
+              <option class="menu-item" data-select2-id="select2-data-15-vn7g">
+                Select Subject...
+              </option>
+              <option class="menu-item" value="math">Math</option>
+              <option class="menu-item" value="physics">Physics</option>
+              <option class="menu-item" value="programming">Programming</option>
+              <option class="menu-item" value="english">English</option>
+              <option class="menu-item" value="turkish">Turkish</option>
+              >
+            </select>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <!-- Adjust the column width as needed -->
+          <label class="col-form-label required fw-semibold fs-4">Status</label>
+          <div class="fv-row fv-plugins-icon-container">
+            <select
+              class="form-select form-select-solid select2-hidden-accessible"
+              formControlName="status"
+            >
+              <option class="menu-item" data-select2-id="select2-data-15-vn7g">
+                Select Subject...
+              </option>
+              <option class="menu-item" value="available">Available</option>
+              <option class="menu-item" value="not-available">Not Available</option>
+              <option class="menu-item" value="pending">pending</option>
+              >
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row m-3">
+        <div class="col-lg-9">
+          <label class="col-form-label required fw-semibold fs-4">Course Title</label>
+          <div class="fv-row fv-plugins-icon-container">
             <input
-              _ngcontent-rbc-c25=""
               type="text"
-              name="company"
+              formControlName="title"
               value="Course Title will be written here "
               class="form-control form-control-lg form-control-solid"
             />
             <div
-              _ngcontent-rbc-c25=""
-              class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
-            ></div>
-          </div>
-        </div>
-        <!-- Second Input -->
-        <div class="col-lg-4"> <!-- Adjust the column width as needed -->
-          <label _ngcontent-rbc-c25="" class="col-form-label required fw-semibold fs-4">Course Subject</label>
-          <div _ngcontent-rbc-c25="" class="fv-row fv-plugins-icon-container">
-            <input
-              _ngcontent-rbc-c25=""
-              type="text"
-              name="secondInput"
-              value="Math"
-              class="form-control form-control-lg form-control-solid"
-            />
-            <div
-              _ngcontent-rbc-c25=""
               class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
             ></div>
           </div>
@@ -40,26 +71,26 @@
       </div>
       <!-- New Row for Course Description -->
       <div class="row m-3">
-        <div class="col-lg-9"> <!-- Adjust the column width as needed -->
-          <label _ngcontent-rbc-c25="" class="col-form-label required fw-semibold fs-4">Course Description</label>
-          <div _ngcontent-rbc-c25="" class="fv-row fv-plugins-icon-container">
+        <div class="col-lg-9">
+          <!-- Adjust the column width as needed -->
+          <label class="col-form-label required fw-semibold fs-4">Course Description</label>
+          <div class="fv-row fv-plugins-icon-container">
             <textarea
-              _ngcontent-rbc-c25=""
-              name="courseDescription"
+              formControlName="description"
               rows="4"
               class="form-control form-control-lg form-control-solid"
-            >Course description will be written here</textarea>
+            >
+Course description will be written here</textarea
+            >
             <div
-              _ngcontent-rbc-c25=""
               class="fv-plugins-message-container fv-plugins-message-container--enabled invalid-feedback"
             ></div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  
+  </form>
+</div>
 
 <!-- second card -->
 <div class="card card-flush">
@@ -77,20 +108,8 @@
     <div class="card-toolbar">
       <!--begin::Toolbar-->
       <div class="d-flex justify-content-end" data-kt-filemanager-table-toolbar="base">
-     
-
         <!--begin::Add customer-->
-        <button
-          type="button"
-          class="btn btn-flex btn-primary"
-          data-bs-toggle="modal"
-          data-bs-target="#kt_modal_upload"
-        >
-          <i class="ki-duotone ki-folder-up fs-2"
-            ><span class="path1"></span><span class="path2"></span
-          ></i>
-          Upload Files
-        </button>
+        <app-add-lesson-modal [courseId]="courseId"></app-add-lesson-modal>
         <!--end::Add customer-->
       </div>
       <!--end::Toolbar-->

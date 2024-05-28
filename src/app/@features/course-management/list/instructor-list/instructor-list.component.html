@@ -37,12 +37,12 @@
                 <!--begin::Table row-->
                 <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
                   <th
-                    class="min-w-50px sorting_disabled"
+                    class="text-center min-w-100px sorting_disabled"
                     rowspan="1"
                     colspan="1"
-                    style="width: 50px"
+                    style="width: 150px"
                   >
-                    Course ID
+                    Title
                   </th>
                   <th
                     class="text-start min-w-50px sorting_disabled"
@@ -60,14 +60,7 @@
                   >
                     Subject
                   </th>
-                  <th
-                    class="text-center min-w-100px sorting_disabled"
-                    rowspan="1"
-                    colspan="1"
-                    style="width: 150px"
-                  >
-                    Title
-                  </th>
+
                   <th
                     class="text-center min-w-50px sorting_disabled"
                     rowspan="1"
@@ -91,33 +84,38 @@
 
               <!--begin::Table body-->
               <tbody class="fw-bold text-gray-600">
-                <tr >
-                  <td>
+                <tr *ngFor="let course of courses | async">
+                  <!-- <td>
                     <a
                       href="/metronic8/demo1/apps/ecommerce/catalog/edit-product.html"
                       class="text-gray-800 text-hover-primary"
                       >#XGY-346</a
                     >
+                  </td> -->
+                  <td class="text-center">
+                    <span class="text-gray-800 fw-bolder">{{ course.title }}</span>
                   </td>
 
-                  <td class="text-start">7 min ago</td>
+                  <td class="text-start">{{ course.createdDate }}</td>
                   <td class="text-center">
-                    <span class="badge py-3 px-4 fs-7 badge-light-dark">Math</span>
+                    <span class="badge py-3 px-4 fs-7 badge-light-dark">{{ course.subject }}</span>
                   </td>
 
                   <td class="text-center">
-                    <span class="text-gray-800 fw-bolder">How to count with your hand</span>
-                  </td>
-
-                  <td class="text-center">
-                    <span class="badge py-3 px-4 fs-7 badge-light-warning">Pending</span>
+                    <span [ngClass]="{
+                      'badge-light-success':  course.status === 'available',
+                      'badge-light-warning':  course.status === 'pending',
+                      'badge-light-danger':  course.status === 'not-available'
+                    }" class="badge py-3 px-4 fs-7">{{
+                      course.status
+                    }}</span>
                   </td>
                   <td class="text-center">
                     <!--begin::Icon-->
                     <div class="d-flex justify-content-center flex-shrink-0">
                       <!--begin::View-->
                       <a
-                        routerLink="../AddDetails"
+                        [routerLink]="['../AddDetails',course.id]"
                         class="btn btn-icon btn-color-muted btn-bg-light btn-active-color-primary btn-sm me-3"
                       >
                         <i class="ki-duotone bi bi-eye fs-3"
@@ -139,7 +137,6 @@
               <!--end::Table body-->
             </table>
           </div>
-
         </div>
         <!--end::Table-->
       </div>
@@ -164,8 +161,6 @@
   </div>
 </div>
 
-
-
 <!-- add new course pop up -->
 <ng-template #content let-modal>
   <div class="modal-content rounded">
@@ -173,7 +168,10 @@
     <div class="modal-header pb-0 border-0 justify-content-end">
       <!--begin::Close-->
 
-      <div class="btn btn-sm btn-icon btn-active-color-primary" (click)="modal.dismiss('Cross click')">
+      <div
+        class="btn btn-sm btn-icon btn-active-color-primary"
+        (click)="modal.dismiss('Cross click')"
+      >
         <i class="ki-duotone ki-cross fs-1"
           ><span class="path1"></span><span class="path2"></span
         ></i>
@@ -204,9 +202,7 @@
           <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
             <span class="required">Course Title</span>
 
-            <span
-              class="ms-1"
-            >
+            <span class="ms-1">
               <i class="ki-duotone ki-information-5 text-gray-500 fs-6"
                 ><span class="path1"></span><span class="path2"></span
                 ><span class="path3"></span></i
@@ -233,14 +229,17 @@
             <label class="required fs-6 fw-semibold mb-2">Course Subject</label>
 
             <select
-              class="form-select form-select-solid select2-hidden-accessible" formControlName="subject"
+              class="form-select form-select-solid select2-hidden-accessible"
+              formControlName="subject"
             >
               <option class="menu-item" data-select2-id="select2-data-15-vn7g">
                 Select Subject...
               </option>
-              <option class="menu-item" value="1">Math</option>
-              <option class="menu-item" value="2">Physics</option>
-              <option class="menu-item" value="3">Programming</option>
+              <option class="menu-item" value="math">Math</option>
+              <option class="menu-item" value="physics">Physics</option>
+              <option class="menu-item" value="programming">Programming</option>
+              <option class="menu-item" value="english">English</option>
+              <option class="menu-item" value="turkish">Turkish</option>
               >
             </select>
           </div>
@@ -259,11 +258,8 @@
           </textarea>
         </div>
 
-
         <div class="modal-footer">
-          <button (click)="modal.dismiss('Cross click')" class="btn btn-light me-3">
-            Cancel
-          </button>
+          <button (click)="modal.dismiss('Cross click')" class="btn btn-light me-3">Cancel</button>
           <button class="btn btn-primary" (click)="modal.close('save')">
             <span class="indicator-label"> Submit </span>
             <span class="indicator-progress">

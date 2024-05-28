@@ -12,7 +12,7 @@ import { AdminViewComponent } from './view/admin-view/admin-view.component';
 import { InstructorViewComponent } from './view/instructor-view/instructor-view.component';
 import { AddCourseDetailsComponent } from './view/add-course-details/add-course-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { AddLessonModalComponent } from './view/add-course-details/add-lesson-modal/add-lesson-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,12 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     StudentViewComponent,
     AdminViewComponent,
     InstructorViewComponent,
-    AddCourseDetailsComponent
+    AddCourseDetailsComponent,
+    AddLessonModalComponent,
   ],
-  imports: [
-    CommonModule,
-    CourseManagementRoutingModule,
-    ReactiveFormsModule
-  ]
+  imports: [CommonModule, CourseManagementRoutingModule, ReactiveFormsModule],
 })
-export class CourseManagementModule { }
+export class CourseManagementModule {}

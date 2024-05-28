@@ -20,7 +20,7 @@ const routes: Routes = [
         component:ViewComponent,
       },
       {
-        path:"AddDetails",
+        path:"AddDetails/:id",
         component:AddCourseDetailsComponent,
       },
       {
