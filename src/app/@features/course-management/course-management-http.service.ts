@@ -21,17 +21,32 @@ export class CourseManagementHttpService {
 
   //lessons
 
-  addLesson(payload: any): Observable<any[]> {
-    return this.http.post<any[]>(`${course_management_url}/add-lesson`, payload);
+  addLesson(payload: any): Observable<any> {
+    return this.http.post<any>(`${course_management_url}/add-lesson`, payload);
+  }
+  editLesson(payload: any): Observable<any> {
+    return this.http.post<any>(`${course_management_url}/edit-lesson`, payload);
+  }
+  deleteLesson(payload: any): Observable<any> {
+    return this.http.post<any>(`${course_management_url}/delete-lesson`, payload);
+  }
+  getLessons(courseId: any): Observable<any> {
+    return this.http.get<any>(`${course_management_url}/get-lessons/${courseId}`);
   }
 
 
   //
-  setItemInStorage(courses:any){
+  setCoursesInStorage(courses:any){
     localStorage.setItem('courses' , JSON.stringify(courses))
   }
-  getItemFromStorage():any[]{
+  getCoursesFromStorage():any[]{
     return JSON.parse(localStorage.getItem('courses')!)
+  }
+  setLessonsInStorage(lessons:any){
+    localStorage.setItem('lessons' , JSON.stringify(lessons))
+  }
+  getLessonsFromStorage():any[]{
+    return JSON.parse(localStorage.getItem('lessons')!)
   }
 
 }

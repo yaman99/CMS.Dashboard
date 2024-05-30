@@ -23,7 +23,7 @@ export class InstructorListComponent implements OnInit {
   ngOnInit() {
     this.coursestHttp.getInstructorCourses().subscribe(res => {
       this.courses.next(res.data);
-      this.coursestHttp.setItemInStorage(res.data);
+      this.coursestHttp.setCoursesInStorage(res.data);
     })
     this.Courseform = this.fb.group({
       title: [''],

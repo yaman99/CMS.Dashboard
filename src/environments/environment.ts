@@ -23,6 +23,8 @@ export const environment = {
   userManagemntUrl: 'http://localhost:5321/api/UserManagement',
   coursesManagementUrl: 'http://localhost:5321/api/CoursesManagement',
   stateMangementSecretKey: '123asdzxc',
+
+  filesPath: 'http://localhost:5321/uploads'
 };
 
 /*
