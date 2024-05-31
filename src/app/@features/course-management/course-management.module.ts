@@ -13,6 +13,7 @@ import { InstructorViewComponent } from './view/instructor-view/instructor-view.
 import { AddCourseDetailsComponent } from './view/add-course-details/add-course-details.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddLessonModalComponent } from './view/add-course-details/add-lesson-modal/add-lesson-modal.component';
+import { LibraryComponent } from './library/library.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AddLessonModalComponent } from './view/add-course-details/add-lesson-mo
     InstructorViewComponent,
     AddCourseDetailsComponent,
     AddLessonModalComponent,
+    LibraryComponent
   ],
   imports: [CommonModule, CourseManagementRoutingModule, ReactiveFormsModule],
 })

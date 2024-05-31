@@ -5,36 +5,50 @@ import { StudentListComponent } from './list/student-list/student-list.component
 import { ListComponent } from '@features/course-management/list/list.component';
 import { ViewComponent } from './view/view.component';
 import { AddCourseDetailsComponent } from './view/add-course-details/add-course-details.component';
+import { LibraryComponent } from './library/library.component';
 
 const routes: Routes = [
   {
     path: '',
     component: CourseManagementComponent,
-    children:[
+    children: [
       {
-        path:"list",
-        component:ListComponent,
+        path: 'list',
+        component: ListComponent,
       },
       {
-        path:"view",
-        component:ViewComponent,
+        path: 'list/:id',
+        component: ViewComponent,
+        data: {
+          source: 'list',
+        },
       },
       {
-        path:"AddDetails/:id",
-        component:AddCourseDetailsComponent,
+        path: 'AddDetails/:id',
+        component: AddCourseDetailsComponent,
       },
       {
-        path:'',
-        redirectTo:'list',
-        pathMatch:'full'
-      }
-
-    ]
+        path: 'library',
+        component: LibraryComponent,
+      },
+      {
+        path: 'library/:id',
+        component: ViewComponent,
+        data: {
+          source: 'library',
+        },
+      },
+      {
+        path: '',
+        redirectTo: 'list',
+        pathMatch: 'full',
+      },
+    ],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class CourseManagementRoutingModule { }
+export class CourseManagementRoutingModule {}

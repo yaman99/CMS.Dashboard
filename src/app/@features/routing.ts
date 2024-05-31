@@ -29,10 +29,6 @@ const Routing: Routes = [
     loadChildren: () => import('./settings/settings.module').then((m) => m.SettingsModule)
   },
   {
-    path: 'courses-library',
-    loadChildren: () => import('./courses-library/courses-library.module').then((m) => m.CoursesLibraryModule)
-  },
-  {
     path: 'explore-communities',
     component: ExploreCommunitiesComponent,
   },

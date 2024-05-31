@@ -1,3 +1,159 @@
-<app-student-view  ></app-student-view>
-<!-- <app-admin-view></app-admin-view> -->
-<!-- <app-instructor-view></app-instructor-view> -->
+<div class="card-body p-lg-15 pb-lg-0">
+  <!--begin::Layout-->
+  <div class="d-flex flex-column flex-xl-row">
+    <!--begin::Content-->
+    <div class="flex-lg-row-fluid me-xl-15">
+      <!--begin::Post content-->
+      <div class="mb-17">
+        <!--begin::Wrapper-->
+        <div class="mb-8">
+          <!--begin::Info-->
+          <div
+            class="d-flex mb-6"
+            [ngClass]="{ 'justify-content-between': !isEnrolled, 'flex-wrap': isEnrolled }"
+          >
+            <!--begin::Item-->
+            <div class="me-9 my-1">
+              <!--begin::Icon-->
+              <i class="ki-duotone ki-element-11 text-primary fs-2 me-1"
+                ><span class="path1"></span><span class="path2"></span><span class="path3"></span
+                ><span class="path4"></span
+              ></i>
+              <!--end::Icon-->
+
+              <!--begin::Label-->
+              <span class="fw-bold text-gray-500">{{ course.lessons.length }} Lessons</span>
+              <!--end::Label-->
+            </div>
+            <!--end::Item-->
+
+            <!--begin::Item-->
+            <div class="me-9 my-1" *ngIf="!isEnrolled">
+              <!--begin::Label-->
+              <button
+                (click)="addCourseToStudent(course.id)"
+                class="btn btn-primary fs-2 btn-sm fw-bold"
+              >
+                Start Learning
+              </button>
+              <!--begin::Label-->
+            </div>
+            <!--end::Item-->
+            <!--begin::Item-->
+
+            <!--end::Item-->
+          </div>
+          <!--end::Info-->
+
+          <!--begin::Title-->
+          <span class="text-gray-900 fs-2 fw-bold">
+            {{ isEnrolled ? getLessonData('title') : course.title }}
+          </span>
+          <!--end::Title-->
+
+          <!--begin::Container-->
+          <div class="overlay mt-8">
+            <!--begin::Image-->
+            <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded mb-0">
+              <video
+                #videoPlayer
+                [controls]="isEnrolled"
+                class="embed-responsive-item card-rounded h-400px w-100"
+              >
+                <source [src]="videoPath + '/' + getLessonData('video')" />
+              </video>
+            </div>
+            <!--end::Image-->
+          </div>
+          <!--end::Container-->
+        </div>
+        <!--end::Wrapper-->
+
+        <!--begin::Description-->
+        <div class="fs-5 fw-semibold text-gray-600">
+          <!--begin::Text-->
+          <h3>Lesson Overview:</h3>
+          <p class="mb-8">
+            {{ getLessonData('description') }}
+          </p>
+          <!--end::Text-->
+        </div>
+        <!--end::Description-->
+      </div>
+      <!--end::Post content-->
+      <ng-container *ngIf="!isEnrolled">
+        <!--begin::Block-->
+        <h3>About The Course:</h3>
+
+        <div
+          class="d-flex align-items-center border-1 border-dashed card-rounded p-5 p-lg-10 mb-14"
+        >
+          <!--begin::Text-->
+          <div class="mb-0 fs-6">
+            <div class="text-muted fw-semibold lh-lg mb-2">
+              {{ course.description }}
+            </div>
+          </div>
+          <!--end::Text-->
+        </div>
+        <!--end::Block-->
+      </ng-container>
+    </div>
+    <!--end::Content-->
+
+    <ng-container *ngIf="isEnrolled">
+      <!--begin::Sidebar-->
+      <div class="flex-column flex-lg-row-auto w-100 w-xl-300px mb-10">
+        <!--begin::Search blog-->
+        <div class="mb-16">
+          <!--begin::Recent posts-->
+          <h4 class="text-gray-900 mb-7">Course Lessons</h4>
+          <div class="mt-5 overflow-auto" style="max-height: 500px">
+            <!--begin::Item-->
+            <ng-container *ngFor="let lesson of course.lessons; let i = index">
+              <div class="d-flex flex-stack">
+                <!--begin::Symbol-->
+                <div class="symbol symbol-40px me-4">
+                  <div class="symbol-label fs-2 fw-semibold bg-danger text-inverse-danger">
+                    {{ i + 1 }}
+                  </div>
+                </div>
+                <!--end::Symbol-->
+
+                <!--begin::Section-->
+                <div class="d-flex align-items-center flex-row-fluid flex-wrap">
+                  <!--begin:Author-->
+                  <div class="flex-grow-1 me-2">
+                    <a
+                      href="/metronic8/demo1/pages/user-profile/overview.html"
+                      class="text-gray-800 text-hover-primary fs-6 fw-bold"
+                      >{{ lesson.title }}</a
+                    >
+                  </div>
+                  <!--end:Author-->
+
+                  <!--begin::Actions-->
+                  <a
+                    class="btn btn-sm btn-bg-light btn-active-color-primary"
+                    [ngClass]="{ active: lesson.id === (currentLesson | async).id }"
+                    (click)="watchLesson(i)"
+                  >
+                    {{ lesson.id !== (currentLesson | async).id ? 'watch' : 'watching' }}
+                  </a>
+                  <!--begin::Actions-->
+                </div>
+                <!--end::Section-->
+              </div>
+              <div class="separator separator-dashed my-4"></div>
+            </ng-container>
+
+            <!--end::Item-->
+          </div>
+          <!--end::Recent posts-->
+        </div>
+        <!--end::Sidebar-->
+      </div>
+      <!--end::Layout-->
+    </ng-container>
+  </div>
+</div>

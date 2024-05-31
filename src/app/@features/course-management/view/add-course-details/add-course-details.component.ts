@@ -17,7 +17,6 @@ export class AddCourseDetailsComponent implements OnInit {
   courseId: string;
   lessons: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   constructor(
-    private modalService: NgbModal,
     private fb: FormBuilder,
     private coursestHttp: CourseManagementHttpService,
     private noticService: NoticeService,

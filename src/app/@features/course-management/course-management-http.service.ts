@@ -12,11 +12,21 @@ export class CourseManagementHttpService {
   getInstructorCourses(): Observable<any> {
     return this.http.get<any>(`${course_management_url}/get-instructor-courses`);
   }
+  getStudentCourses(): Observable<any> {
+    return this.http.get<any>(`${course_management_url}/get-student-courses`);
+  }
+  getAllCourses(): Observable<any> {
+    return this.http.get<any>(`${course_management_url}/get-courses`);
+  }
   addCourse(payload: any): Observable<any[]> {
     return this.http.post<any[]>(`${course_management_url}/add-course`, payload);
   }
   updateCourse(payload: any): Observable<any[]> {
     return this.http.post<any[]>(`${course_management_url}/update-course`, payload);
+  }
+
+  applyOnCourse(payload:any){
+    return this.http.post<any[]>(`${course_management_url}/apply-on-course`, payload);
   }
 
   //lessons

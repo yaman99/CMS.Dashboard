@@ -12,6 +12,12 @@
 
             <!--begin::Section-->
             <div class="d-flex align-items-center">
+              <!--begin::Link-->
+              <a [routerLink]="['../library', course.id]" class="text-primary fw-bold me-1 mx-5 mt-5"
+                >More Details</a
+              >
+              <!--begin::Link-->
+
               <!--begin::Arrow-->
               <i class="ki-duotone ki-arrow-right fs-2 text-primary mx-5 mt-5"
                 ><span class="path1"></span><span class="path2"></span
@@ -31,7 +37,7 @@
           <!--end::Video-->
           <div class="d-flex justify-content-center">
             <div class="m-3">
-              <a [routerLink]="['../list', course.id]" class="btn btn-primary fs-2 btn-sm fw-bold">Learn</a>
+              <button (click)="addCourseToStudent(course.id);" class="btn btn-primary fs-2 btn-sm fw-bold">Add to my courses</button>
             </div>
           </div>
         </div>
