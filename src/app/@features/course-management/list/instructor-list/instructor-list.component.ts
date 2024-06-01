@@ -13,6 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 export class InstructorListComponent implements OnInit {
   Courseform: FormGroup;
   courses: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
+
   constructor(
     private modalService: NgbModal,
     private fb: FormBuilder,
@@ -21,21 +22,30 @@ export class InstructorListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.coursestHttp.getInstructorCourses().subscribe(res => {
+    this.coursestHttp.getInstructorCourses().subscribe((res) => {
       this.courses.next(res.data);
       this.coursestHttp.setCoursesInStorage(res.data);
-    })
+    });
     this.Courseform = this.fb.group({
       title: [''],
       subject: [''],
       description: [''],
     });
   }
+  deleteCourse(id: any) {
+    let model = {
+      courseId: id,
+    };
+    this.coursestHttp.deleteCourse(model).subscribe((result) => {
+      this.noticService.successNotice('Course Deleted');
+      this.coursestHttp.getInstructorCourses();
+    });;
+  }
   AddNewCoursePopUp(content: TemplateRef<any>) {
     this.modalService.open(content, { centered: true }).result.then(
       (result) => {
         this.coursestHttp.addCourse(this.Courseform.value).subscribe((result) => {
-          this.noticService.successNotice("Courses Added Successfully");
+          this.noticService.successNotice('Courses Added Successfully');
           this.coursestHttp.getInstructorCourses();
         });
       },

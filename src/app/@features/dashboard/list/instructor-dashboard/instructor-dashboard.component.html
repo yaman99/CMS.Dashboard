@@ -8,7 +8,7 @@
       >
         <div class="card-header pt-5">
           <div class="card-title d-flex flex-column">
-            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">133</span>
+            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{(data | async)?.totalStudent}}</span>
             <span class="text-white opacity-50 pt-1 fw-semibold mb-5 fs-6">Following Student</span>
           </div>
         </div>
@@ -22,7 +22,7 @@
       >
         <div class="card-header pt-5">
           <div class="card-title d-flex flex-column">
-            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">5</span>
+            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{(data | async)?.totalCourses}}</span>
             <span class="text-white opacity-50 pt-1 fw-semibold mb-5 fs-6">Total Courses</span>
           </div>
         </div>
@@ -36,7 +36,7 @@
       >
         <div class="card-header pt-5">
           <div class="card-title d-flex flex-column">
-            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">7</span>
+            <span class="fs-2hx fw-bold text-white me-2 lh-1 ls-n2">{{(data | async)?.totalCommunities}}</span>
             <span class="text-white opacity-50 pt-1 fw-semibold mb-5 fs-6">Total Community</span>
           </div>
         </div>
@@ -46,100 +46,131 @@
 </div>
 
 <!-- Courses Table -->
-<div class="container-fluid">
-  <div class="card card-flush" data-select2-id="select2-data-223-k9y4">
-    <div class="card-header pt-7 d-flex justify-content-between align-items-center">
-      <h3 class="card-title align-items-start flex-column">
-        <span class="card-label fw-bold text-gray-800">My Courses</span>
-      </h3>
-    </div>
+<div class="container-fluid row">
+  <div class="col-sm-12">
+    <div class="card card-flush" data-select2-id="select2-data-223-k9y4">
+      <!--begin::Card header-->
+      <div class="card-header pt-7 d-flex justify-content-between align-items-center">
+        <!--begin::Title-->
+        <h3 class="card-title align-items-start flex-column">
+          <span class="card-label fw-bold text-gray-800">My Courses</span>
+        </h3>
+        <!--end::Title-->
 
-    <div class="card-body pt-2">
-      <div id="kt_table_widget_4_table_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-        <div class="table-responsive">
-          <table
-            class="table align-middle table-row-dashed fs-6 gy-3 dataTable no-footer"
-            id="kt_table_widget_4_table"
-          >
-            <thead>
-              <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
-                <th class="min-w-50px sorting_disabled" rowspan="1" colspan="1" style="width: 50px">
-                  Course ID
-                </th>
-                <th
-                  class="text-start min-w-50px sorting_disabled"
-                  rowspan="1"
-                  colspan="1"
-                  style="width: 50px"
-                >
-                  Creation Date
-                </th>
-                <th
-                  class="text-center min-w-50px sorting_disabled"
-                  rowspan="1"
-                  colspan="1"
-                  style="width: 50px"
-                >
-                  Subject
-                </th>
-                <th
-                  class="text-center min-w-100px sorting_disabled"
-                  rowspan="1"
-                  colspan="1"
-                  style="width: 150px"
-                >
-                  Title
-                </th>
-                <th
-                  class="text-center min-w-50px sorting_disabled"
-                  rowspan="1"
-                  colspan="1"
-                  style="width: 50px"
-                >
-                  Status
-                </th>
-              </tr>
-            </thead>
-            <tbody class="fw-bold text-gray-600">
-              <tr>
-                <td>
-                  <a class="text-gray-800 text-hover-primary">#XGY-346</a>
-                </td>
-
-                <td class="text-start">7 min ago</td>
-                <td class="text-center">
-                  <span class="badge py-3 px-4 fs-7 badge-light-dark">Math</span>
-                </td>
-
-                <td class="text-center">
-                  <span class="text-gray-800 fw-bolder">How to count with your hand</span>
-                </td>
-                <td class="text-center">
-                  <span class="badge py-3 px-4 fs-7 badge-light-warning">Pending</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
       </div>
+
+      <!--end::Card header-->
+
+      <!--begin::Card body-->
+      <div class="card-body pt-2">
+        <!--begin::Table-->
+        <div
+          id="kt_table_widget_4_table_wrapper"
+          class="dataTables_wrapper dt-bootstrap4 no-footer"
+        >
+          <div class="table-responsive">
+            <table
+              class="table align-middle table-row-dashed fs-6 gy-3 dataTable no-footer"
+              id="kt_table_widget_4_table"
+            >
+              <!--begin::Table head-->
+              <thead>
+                <!--begin::Table row-->
+                <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
+                  <th
+                    class="text-center min-w-100px sorting_disabled"
+                    rowspan="1"
+                    colspan="1"
+                    style="width: 150px"
+                  >
+                    Title
+                  </th>
+                  <th
+                    class="text-start min-w-50px sorting_disabled"
+                    rowspan="1"
+                    colspan="1"
+                    style="width: 50px"
+                  >
+                    Creation Date
+                  </th>
+                  <th
+                    class="text-center min-w-50px sorting_disabled"
+                    rowspan="1"
+                    colspan="1"
+                    style="width: 50px"
+                  >
+                    Subject
+                  </th>
+
+                  <th
+                    class="text-center min-w-50px sorting_disabled"
+                    rowspan="1"
+                    colspan="1"
+                    style="width: 50px"
+                  >
+                    Status
+                  </th>
+
+                </tr>
+                <!--end::Table row-->
+              </thead>
+              <!--end::Table head-->
+
+              <!--begin::Table body-->
+              <tbody class="fw-bold text-gray-600">
+                <tr *ngFor="let course of courses | async">
+                  <!-- <td>
+                    <a
+                      href="/metronic8/demo1/apps/ecommerce/catalog/edit-product.html"
+                      class="text-gray-800 text-hover-primary"
+                      >#XGY-346</a
+                    >
+                  </td> -->
+                  <td class="text-center">
+                    <span class="text-gray-800 fw-bolder">{{ course.title }}</span>
+                  </td>
+
+                  <td class="text-start">{{ course.createdDate | date}}</td>
+                  <td class="text-center">
+                    <span class="badge py-3 px-4 fs-7 badge-light-dark">{{ course.subject }}</span>
+                  </td>
+
+                  <td class="text-center">
+                    <span [ngClass]="{
+                      'badge-light-success':  course.status === 'available',
+                      'badge-light-warning':  course.status === 'pending',
+                      'badge-light-danger':  course.status === 'not-available'
+                    }" class="badge py-3 px-4 fs-7">{{
+                      course.status
+                    }}</span>
+                  </td>
+
+                </tr>
+              </tbody>
+              <!--end::Table body-->
+            </table>
+          </div>
+        </div>
+        <!--end::Table-->
+      </div>
+      <!-- <div class="container m-3">
+        <ul class="pagination">
+          <li class="page-item previous disabled">
+            <a href="#" class="page-link"><i class="previous"></i></a>
+          </li>
+          <li class="page-item text-dark"><a href="#" class="page-link">1</a></li>
+          <li class="page-item active"><a href="#" class="page-link">2</a></li>
+          <li class="page-item"><a href="#" class="page-link">3</a></li>
+          <li class="page-item"><a href="#" class="page-link">...</a></li>
+          <li class="page-item"><a href="#" class="page-link">5</a></li>
+          <li class="page-item"><a href="#" class="page-link">6</a></li>
+          <li class="page-item next">
+            <a href="#" class="page-link"><i class="next"></i></a>
+          </li>
+        </ul>
+      </div> -->
+      <!--end::Card body-->
     </div>
-    <!-- <div class="container m-3">
-          <ul class="pagination">
-            <li class="page-item previous disabled">
-              <a href="#" class="page-link"><i class="previous"></i></a>
-            </li>
-            <li class="page-item text-dark"><a href="#" class="page-link">1</a></li>
-            <li class="page-item active"><a href="#" class="page-link">2</a></li>
-            <li class="page-item"><a href="#" class="page-link">3</a></li>
-            <li class="page-item"><a href="#" class="page-link">...</a></li>
-            <li class="page-item"><a href="#" class="page-link">5</a></li>
-            <li class="page-item"><a href="#" class="page-link">6</a></li>
-            <li class="page-item next">
-              <a href="#" class="page-link"><i class="next"></i></a>
-            </li>
-          </ul>
-        </div> -->
-    <!--end::Card body-->
   </div>
 </div>
 

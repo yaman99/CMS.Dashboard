@@ -21,6 +21,9 @@ export class CourseManagementHttpService {
   addCourse(payload: any): Observable<any[]> {
     return this.http.post<any[]>(`${course_management_url}/add-course`, payload);
   }
+  deleteCourse(payload: any): Observable<any[]> {
+    return this.http.post<any[]>(`${course_management_url}/delete-course`, payload);
+  }
   updateCourse(payload: any): Observable<any[]> {
     return this.http.post<any[]>(`${course_management_url}/update-course`, payload);
   }

@@ -23,6 +23,7 @@ export const environment = {
   userManagemntUrl: 'http://localhost:5321/api/UserManagement',
   coursesManagementUrl: 'http://localhost:5321/api/CoursesManagement',
   communityManagementUrl: 'http://localhost:5321/api/CommunityManagement',
+  dashboardUrl: 'http://localhost:5321/api/Dashboard',
   stateMangementSecretKey: '123asdzxc',
 
   filesPath: 'http://localhost:5321/uploads'
