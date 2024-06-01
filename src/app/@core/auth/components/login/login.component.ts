@@ -3,7 +3,6 @@ import { Component, OnInit, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Subscription, Observable } from 'rxjs';
 
-
 import { AuthStateActions } from '../../actions/auth.action';
 import { Select } from '@ngxs/store';
 import { AuthBaseState } from '@core/auth';
@@ -17,13 +16,12 @@ import { AuthBaseState } from '@core/auth';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit, OnDestroy {
-
   loginForm: FormGroup;
   hasError: boolean;
   returnUrl: string;
 
-  @Select(AuthBaseState.isLoading)  loadingAuth$: Observable<boolean>;
-  @Select(AuthBaseState.getErrorMessage)  errorMessage$: Observable<string>;
+  @Select(AuthBaseState.isLoading) loadingAuth$: Observable<boolean>;
+  @Select(AuthBaseState.getErrorMessage) errorMessage$: Observable<string>;
 
   // @Select(WorkspaceState.isLoading)  loadingWorkspaceData$: Observable<boolean>;
   // @Select(PromoterState.isLoading)  loadingPromoterData$: Observable<boolean>;
@@ -38,7 +36,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.initForm();
-    this.clearAlertMessages()
+    this.clearAlertMessages();
   }
 
   get f() {
@@ -47,20 +45,13 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   initForm() {
     this.loginForm = this.fb.group({
-      email: [
-        '',
-        Validators.compose([
-          Validators.required,
-          Validators.email,
-        ]),
-      ],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
       password: [
         '',
         Validators.compose([
           Validators.required,
           Validators.minLength(8),
           Validators.maxLength(100),
-          Validators.pattern('((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,30})'),
         ]),
       ],
     });
@@ -78,7 +69,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.unsubscribe.forEach((sb) => sb.unsubscribe());
   }
-  clearAlertMessages(){
+  clearAlertMessages() {
     this.stateBus.excuteAction(new AuthStateActions.ClearErrorMessage());
   }
 }
