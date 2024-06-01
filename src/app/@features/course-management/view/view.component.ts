@@ -35,7 +35,7 @@ export class ViewComponent implements OnInit {
     }
     this.courseId = this.route.snapshot.params.id;
     this.course = this.coursestHttp.getCoursesFromStorage().find((x) => x.id === this.courseId);
-    this.watchLesson(1);
+    this.watchLesson(0);
   }
 
   watchLesson(lessonIndex: any) {

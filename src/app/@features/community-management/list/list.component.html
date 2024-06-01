@@ -30,13 +30,14 @@
             #myDropdown="ngbDropdown"
           >
             <button
-              class="btn btn-icon btn-color-gray-500 btn-active-color-danger justify-content-end"
+            (click)="Leave(community.id)"
+              class="btn btn-icon btn-color-danger-500 btn-active-color-danger justify-content-end"
               data-kt-menu-trigger="click"
               data-kt-menu-placement="bottom-end"
               data-kt-menu-overflow="true"
             >
               <i class="fa fa-user-minus icon-4x"></i>
-              leave
+
             </button>
           </div>
           <div
@@ -62,7 +63,7 @@
               style=""
             >
               <div ngbDropdownItem class="menu-item px-2 py-2">
-                <a (click)="editCommunityPopUp(content)" class="menu-link px-3"> Edit </a>
+                <a (click)="editCommunityPopUp(content , community)" class="menu-link px-3"> Edit </a>
               </div>
 
               <div ngbDropdownItem class="menu-item px-2 py-2">

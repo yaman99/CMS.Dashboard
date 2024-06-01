@@ -33,6 +33,9 @@ export class CommunityHttpService {
   addPost(payload: any): Observable<any> {
     return this.http.post<any>(`${community_management_url}/add-post`, payload);
   }
+  deletePost(payload: any): Observable<any> {
+    return this.http.post<any>(`${community_management_url}/delete-post`, payload);
+  }
   likePost(payload: any): Observable<any> {
     return this.http.post<any>(`${community_management_url}/like-post`, payload);
   }
@@ -40,7 +43,17 @@ export class CommunityHttpService {
   getAllPosts(commuinty: string): Observable<any> {
     return this.http.get<any>(`${community_management_url}/get-posts/${commuinty}`);
   }
-  // updateCommunity(payload: any): Observable<any> {
-  //   return this.http.post<any>(`${community_management_url}/update-community`, payload);
-  // }
+  updateCommunity(payload: any): Observable<any> {
+    return this.http.post<any>(`${community_management_url}/update-community`, payload);
+  }
+
+  //
+
+
+  setCommunitiesInStorage(Communities:any){
+    localStorage.setItem('Communities' , JSON.stringify(Communities))
+  }
+  getCommunitiesFromStorage():any[]{
+    return JSON.parse(localStorage.getItem('Communities')!)
+  }
 }

@@ -9,8 +9,8 @@
 <ng-container *ngFor="let post of posts | async">
   <div class="card card-bordered w-100 mt-10">
     <div class="card-body">
-      <div class="w-100 d-flex flex-stack mb-8">
-        <div class="d-flex align-items-center">
+      <div class="w-100 d-flex justify-content-between mb-8">
+        <div class="d-flex align-items-start">
           <div class="symbol symbol-50px me-5">
             <div class="symbol-label fs-1 fw-bold bg-light-success text-success">S</div>
           </div>
@@ -27,14 +27,26 @@
             <span class="text-muted fw-semibold fs-6">{{ post.post.createdAt | date }}</span>
           </div>
         </div>
-        <div class="text-center d-flex flex-column align-items-center">
-          <button
-            (click)="like(post.post.id)"
-            class="btn btn-lg btn-active-color-danger heart-button"
-          >
-            <i class="fa fa-heart mb-0" style="font-size: 1.5rem"></i>
-          </button>
-          <span class="fw-bold fs-8 text-gray-900 mt-1">{{ post.post.likes }}</span>
+        <div class="d-flex  justify-content-end">
+          <div class="text-center d-flex flex-column align-items-center">
+            <button
+              (click)="like(post.post.id)"
+              class="btn btn-lg heart-button btn-active-color-danger"
+              [ngClass]="{ active: isLikedBefore(post.post.id) }"
+            >
+              <i class="fa fa-heart mb-0" style="font-size: 1.5rem"></i>
+            </button>
+            <span class="fw-bold fs-8 text-gray-900 mt-1">{{ post.post.likes }}</span>
+          </div>
+           <div class="text-center d-flex flex-column" *ngIf="userType === 'instructor' || 'admin'">
+            <button
+              (click)="deletePost(post.post.id)"
+              class="btn btn-lg  btn-color-danger"
+            >
+              <i class="fa fa-trash mb-0" style="font-size: 1.5rem"></i>
+            </button>
+            <span class="fw-bold fs-8 text-gray-900 mt-1">Delete</span>
+          </div>
         </div>
       </div>
       <p class="fw-normal fs-5 text-gray-700 m-0">

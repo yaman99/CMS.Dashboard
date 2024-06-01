@@ -19,6 +19,7 @@ export class ListComponent implements OnInit, OnDestroy {
   communityForm: FormGroup;
   communities: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   mode = 'list';
+  editMode = false;
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -55,7 +56,16 @@ export class ListComponent implements OnInit, OnDestroy {
         this.router.navigate(['/community/list/', id]);
       }, 3);
     });
+  }
 
+  Leave(id: any) {
+    let model = {
+      community: id,
+    };
+    this.commhttp.leaveCommunity(model).subscribe(() => {
+      this.noticeService.successNotice('You Left The Commuinty');
+      this.getCommunities();
+    });
   }
   getCommunities() {
     if (this.userType === 'admin' || (this.mode === 'explore' && this.userType === 'student')) {
@@ -79,8 +89,8 @@ export class ListComponent implements OnInit, OnDestroy {
     };
     this.commhttp.addCommunity(model).subscribe(() => {
       this.noticeService.successNotice('Community Created Succssfully');
+      this.getCommunities();
     });
-    this.getCommunities();
   }
   deleteCommunity(id: any) {
     let model = {
@@ -91,10 +101,20 @@ export class ListComponent implements OnInit, OnDestroy {
       this.getCommunities();
     });
   }
-  editCommunityPopUp(content: TemplateRef<any>) {
+  editCommunityPopUp(content: TemplateRef<any>, community: any) {
+    this.editMode = true;
+    this.communityForm.patchValue(community);
     this.modalService.open(content, { centered: true }).result.then(
       (result) => {
-        this.submit();
+        let model = {
+          name: this.communityForm.controls.name.value,
+          subject: this.communityForm.controls.subject.value,
+          community: community.id,
+        };
+        this.commhttp.updateCommunity(model).subscribe(() => {
+          this.noticeService.successNotice('Community udpated Succssfully');
+          this.getCommunities();
+        });
       },
       (reason) => {}
     );
