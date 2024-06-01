@@ -6,7 +6,8 @@
   </button>
 </div>
 <!-- Post Structure -->
-<div class="card card-bordered w-100">
+<ng-container *ngFor="let post of posts | async">
+  <div class="card card-bordered w-100 mt-10">
     <div class="card-body">
       <div class="w-100 d-flex flex-stack mb-8">
         <div class="d-flex align-items-center">
@@ -19,28 +20,29 @@
                 href="/metronic8/demo1/pages/user-profile/overview.html"
                 class="text-gray-800 fw-bold text-hover-primary fs-5 me-3"
               >
-                Sandra Piquet
+                {{ post.name }}
               </a>
               <span class="m-0"></span>
             </div>
-            <span class="text-muted fw-semibold fs-6">2 Days ago</span>
+            <span class="text-muted fw-semibold fs-6">{{ post.post.createdAt | date }}</span>
           </div>
         </div>
         <div class="text-center d-flex flex-column align-items-center">
-          <button class="btn btn-lg btn-active-color-danger heart-button">
-            <i class="fa fa-heart mb-0" style="font-size: 1.5rem;"></i>
+          <button
+            (click)="like(post.post.id)"
+            class="btn btn-lg btn-active-color-danger heart-button"
+          >
+            <i class="fa fa-heart mb-0" style="font-size: 1.5rem"></i>
           </button>
-          <span class="fw-bold fs-8 text-gray-900 mt-1">233</span>
+          <span class="fw-bold fs-8 text-gray-900 mt-1">{{ post.post.likes }}</span>
         </div>
       </div>
       <p class="fw-normal fs-5 text-gray-700 m-0">
-        I run a team of 20 product managers, developers, QA and UX. Previously, we designed everything
-        ourselves.
+        {{ post.post.content }}
       </p>
     </div>
   </div>
-
-
+</ng-container>
 
 <ng-template #content let-modal>
   <div class="modal-header">
@@ -63,17 +65,19 @@
           <div class="symbol symbol-50px me-3">
             <div class="symbol-label fs-1 fw-bold bg-light-primary text-primary">R</div>
           </div>
-          <div class="position-relative w-100">
-            <textarea
-              class="form-control form-control-solid border ps-5"
-              rows="3"
-              name="postInput"
-              data-kt-autosize="true"
-              placeholder="Write your comment.."
-              spellcheck="false"
-              style="height: auto"
-            ></textarea>
-          </div>
+          <form [formGroup]="postForm">
+            <div class="position-relative w-100">
+              <textarea
+                class="form-control form-control-solid border ps-5"
+                rows="3"
+                formControlName="content"
+                data-kt-autosize="true"
+                placeholder="Write your comment.."
+                spellcheck="false"
+                style="height: auto"
+              ></textarea>
+            </div>
+          </form>
         </div>
       </div>
     </div>

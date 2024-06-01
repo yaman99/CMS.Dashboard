@@ -32,7 +32,7 @@ function enc(data: string) {
 }
 
 @NgModule({
-  declarations: [AppComponent, SettingsComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     CommonModule,

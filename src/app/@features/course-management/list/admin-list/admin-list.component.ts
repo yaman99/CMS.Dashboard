@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { CourseManagementHttpService } from '@features/course-management/course-management-http.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
   templateUrl: './admin-list.component.html',
   styleUrls: ['./admin-list.component.scss']
 })
-export class AdminListComponent {
+export class AdminListComponent implements OnInit {
   Courseform: FormGroup;
   courses: BehaviorSubject<any[]> = new BehaviorSubject<any[]>([]);
   constructor(

@@ -54,25 +54,6 @@ export class AddCourseDetailsComponent implements OnInit {
     });
   }
 
-  getSubjectOptions() {
-    return [
-      {
-        name: 'math',
-      },
-      {
-        name: 'physics',
-      },
-      {
-        name: 'programming',
-      },
-      {
-        name: 'english',
-      },
-      {
-        name: 'turkish',
-      },
-    ];
-  }
 
   getLessons() {
     this.coursestHttp.getLessons(this.courseId).subscribe((res) => {

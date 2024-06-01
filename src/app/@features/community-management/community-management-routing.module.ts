@@ -13,9 +13,23 @@ const routes: Routes = [
       {
         path: 'list',
         component: ListComponent,
+        data: {
+          source: 'list',
+        },
       },
       {
-        path: 'view',
+        path: 'explore',
+        component: ListComponent,
+        data: {
+          source: 'explore',
+        },
+      },
+      {
+        path: 'list/:id',
+        component: ViewCommuntiyComponent,
+      },
+      {
+        path: 'explore/:id',
         component: ViewCommuntiyComponent,
       },
       {

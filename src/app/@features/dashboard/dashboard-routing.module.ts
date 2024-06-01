@@ -4,7 +4,6 @@ import { DashboardComponent } from './dashboard.component';
 import { UsersManagementComponent } from '@features/users-management/users-management.component';
 import { CourseManagementComponent } from '@features/course-management/course-management.component';
 import { CommunityManagementComponent } from '@features/community-management/community-management.component';
-import { SettingsComponent } from '@features/settings/settings.component';
 import { ListComponent } from './list/list.component';
 
 

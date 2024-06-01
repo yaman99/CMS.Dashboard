@@ -9,7 +9,7 @@ import { AdminCommunityComponent } from './list/admin-community/admin-community.
 import { ExploreCommunitiesComponent } from './explore/explore-communities/explore-communities.component';
 import { ViewCommuntiyComponent } from './view/view-communtiy/view-communtiy.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,9 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
   imports: [
     CommonModule,
     CommunityManagementRoutingModule,
-    NgbDropdownModule
-  ]
+    NgbDropdownModule,
+    ReactiveFormsModule,
+    FormsModule,
+  ],
 })
-export class CommunityManagementModule { }
+export class CommunityManagementModule {}
