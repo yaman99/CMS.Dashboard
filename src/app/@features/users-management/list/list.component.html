@@ -1,37 +1,22 @@
 <div class="card card-flush h-xl-100" data-select2-id="select2-data-223-k9y4">
-  <!--begin::Card header-->
   <div class="card-header border-0 pt-6">
-    <!--begin::Card title-->
     <div class="card-title">
-     <h4>Users List</h4>
-      <!--end::Search-->
+      <h4>Users List</h4>
     </div>
-    <!--begin::Card title-->
-
-    <!--begin::Card toolbar-->
     <div class="card-toolbar">
-      <!--begin::Toolbar-->
       <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
         <app-form *ngIf="userType === 'admin'" [mode]="'add'"></app-form>
       </div>
-      <!--end::Toolbar-->
     </div>
-    <!--end::Card toolbar-->
   </div>
-  <!--end::Card header-->
-
-  <!--begin::Card body-->
   <div class="card-body pt-2">
-    <!--begin::Table-->
     <div id="kt_table_widget_4_table_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
       <div class="table-responsive">
         <table
           class="table align-middle table-row-dashed fs-6 gy-3 dataTable no-footer"
           id="kt_table_widget_4_table"
         >
-          <!--begin::Table head-->
           <thead>
-            <!--begin::Table row-->
             <tr class="text-start text-gray-500 fw-bold fs-7 text-uppercase gs-0">
               <th class="min-w-50px sorting_disabled" rowspan="1" colspan="1" style="width: 50px">
                 email
@@ -56,33 +41,24 @@
                 class="text-end min-w-100px sorting_disabled"
                 rowspan="1"
                 colspan="1"
-                style="width: 89.1953px"
+                style="width: 100px"
               >
                 Status
               </th>
               <th
-                class="text-end sorting_disabled"
+                class="text-start sorting_disabled"
                 rowspan="1"
                 colspan="1"
                 style="width: 25px"
               ></th>
             </tr>
-            <!--end::Table row-->
           </thead>
-          <!--end::Table head-->
-
-          <!--begin::Table body-->
           <tbody class="fw-bold text-gray-600">
             <ng-container *ngFor="let user of users | async">
               <tr>
                 <td>
-                  <a
-                    href="/metronic8/demo1/apps/ecommerce/catalog/edit-product.html"
-                    class="text-gray-800 text-hover-primary"
-                    >{{ user.email }}</a
-                  >
+                  <a class="text-gray-800 ">{{ user.email }}</a>
                 </td>
-
                 <td class="text-end">{{ user.name }}</td>
                 <td class="text-end">
                   <span class="badge py-3 px-4 fs-7 badge-light-dark">{{ user.userType }}</span>
@@ -94,76 +70,28 @@
                       'badge-light-success': user.isActive === true,
                       'badge-light-danger': user.isActive === false
                     }"
-                    >{{ user.isActive }}</span
+                    >{{ user.isActive ? 'Active' : 'Not Active' }}</span
                   >
                 </td>
-                <!-- old version -->
-                <!-- <td class="text-end">
-                  <button
-                    class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px"
-                    data-kt-menu-trigger="click"
-                    data-kt-menu-placement="bottom-end"
-                    data-kt-menu-overflow="true"
-                  >
-                    <i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
-                  </button>
-                  <div
-                    class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px"
-                    data-kt-menu="true"
-                    style=""
-                  >
 
-                    <div class="menu-item px-3">
-                      <div class="menu-content fs-6 text-gray-900 fw-bold px-3 py-4">
-                        Quick Actions
-                      </div>
-                    </div>
-                    <div class="separator mb-3 opacity-75"></div>
-                    <div class="menu-item px-3">
-                      <a
-                        routerLink="../view"
-                        class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4"
-                      >
-                        View
-                      </a>
-                    </div>
-                    <div class="menu-item px-3">
-                      <app-form [mode]="'edit'" [user]="user"></app-form>
-                    </div>
-
-                    <div class="menu-item px-3">
-                      <a (click)="deleteUser(user.id)" class="menu-link px-3 fs-6 text-gray-900 fw-bold py-4">
-                        Delete
-                      </a>
-                    </div>
-
-                  </div>
-                </td> -->
-
-
-
-
-                <!-- new version -->
                 <td class="text-center">
-                  <!--begin::Icon-->
                   <div class="d-flex justify-content-center flex-shrink-0">
                     <!--View-->
-                    <a
+                    <!-- <a
                       routerLink="../view"
                       class="btn btn-icon btn-color-muted btn-bg-light btn-active-color-primary btn-sm me-3"
                     >
                       <i class="ki-duotone bi bi-eye fs-3"
                       ></i>
-                    </a>
+                    </a> -->
                     <!-- Edit -->
                     <div>
                       <app-form [mode]="'edit'" [user]="user"></app-form>
-
                     </div>
 
                     <!-- Delete -->
                     <a
-                    (click)="deleteUser(user.id)"
+                      (click)="deleteUser(user.id)"
                       class="btn btn-icon btn-color-muted btn-bg-light btn-active-color-primary btn-sm"
                     >
                       <i class="far fa-trash-alt icon-xl"></i>
@@ -173,7 +101,6 @@
               </tr>
             </ng-container>
           </tbody>
-          <!--end::Table body-->
         </table>
       </div>
       <div class="row">
@@ -185,23 +112,5 @@
         ></div>
       </div>
     </div>
-    <!--end::Table-->
   </div>
-  <!-- <div class="container m-3">
-    <ul class="pagination">
-        <li class="page-item previous disabled"><a href="#" class="page-link"><i class="previous"></i></a></li>
-        <li class="page-item text-dark"><a href="#" class="page-link">1</a></li>
-        <li class="page-item active"><a href="#" class="page-link">2</a></li>
-        <li class="page-item "><a href="#" class="page-link">3</a></li>
-        <li class="page-item "><a href="#" class="page-link">...</a></li>
-        <li class="page-item "><a href="#" class="page-link">5</a></li>
-        <li class="page-item "><a href="#" class="page-link">6</a></li>
-        <li class="page-item next"><a href="#"  class="page-link"><i class="next"></i></a></li>
-    </ul>
-</div> -->
-  <!--end::Card body-->
 </div>
-
-
-
-

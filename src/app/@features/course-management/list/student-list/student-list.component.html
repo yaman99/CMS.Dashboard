@@ -1,37 +1,21 @@
 <div class="container-fluid">
   <div class="row">
-    <ng-container *ngFor="let course of courses | async">
-      <div class="col-lg-4">
-        <!-- first card -->
-        <div class="card card-body card-flush m-5">
-          <!--begin::Header-->
-          <div class="d-flex flex-stack mb-7">
-            <!--begin::Title-->
-            <h1 class="fw-bold text-gray-900 mx-5 mt-5">Course Name here</h1>
-            <!--end::Title-->
-
-            <!--begin::Section-->
-            <div class="d-flex align-items-center">
-              <!--begin::Arrow-->
-              <i class="ki-duotone ki-arrow-right fs-2 text-primary mx-5 mt-5"
-                ><span class="path1"></span><span class="path2"></span
-              ></i>
-              <!--end::Arrow-->
-            </div>
-            <!--end::Section-->
+    <ng-container *ngFor="let course of courses | async" class="container">
+      <div class="col-lg-4 d-flex align-items-stretch">
+        <div class="card card-body card-flush m-5 d-flex flex-column">
+          <div class="d-flex justify-content-center mb-7">
+            <h4 class="fw-bold text-gray-900 mx-5 mt-5">Course Name</h4>
           </div>
-          <!--end::Header-->
-
-          <!--begin::Video-->
           <div class="mx-5 mb-5">
-            <video width="400">
-            <source [src]="videoPath + '/' + course.lessons[0].video">
-          </video>
+            <video *ngIf="course.lessons[0]?.video" class="rounded mx-auto d-block" width="100%">
+              <source [src]="videoPath + '/' + course.lessons[0].video" />
+            </video>
           </div>
-          <!--end::Video-->
-          <div class="d-flex justify-content-center">
+          <div class="mt-auto d-flex justify-content-center">
             <div class="m-3">
-              <a [routerLink]="['../list', course.id]" class="btn btn-primary fs-2 btn-sm fw-bold">Learn</a>
+              <a [routerLink]="['../list', course.id]" class="btn btn-primary fs-5 btn-sm fw-bold"
+                >Learn</a
+              >
             </div>
           </div>
         </div>

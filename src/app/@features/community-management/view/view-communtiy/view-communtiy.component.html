@@ -38,7 +38,7 @@
             </button>
             <span class="fw-bold fs-8 text-gray-900 mt-1">{{ post.post.likes }}</span>
           </div>
-           <div class="text-center d-flex flex-column" *ngIf="userType === 'instructor' || 'admin'">
+           <div class="text-center d-flex flex-column" *ngIf="userType === 'instructor' ||userType === 'admin'">
             <button
               (click)="deletePost(post.post.id)"
               class="btn btn-lg  btn-color-danger"

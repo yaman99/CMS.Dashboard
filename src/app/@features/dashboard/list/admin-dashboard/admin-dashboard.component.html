@@ -67,11 +67,10 @@
 <div class="card card-flush h-xl-100" data-select2-id="select2-data-223-k9y4">
   <!--begin::Card header-->
   <div class="card-header border-0 pt-6">
-    <div class="card-title">
+    <div class="card-title d-flex justify-content-between w-100">
       <h4>Users List</h4>
-      <!--end::Search-->
+      <a routerLink="../../users/list" class="btn btn-sm btn-light ml-auto">All Users</a>
     </div>
-    >
   </div>
   <!--end::Card header-->
 
@@ -132,8 +131,7 @@
               <tr>
                 <td>
                   <a
-                    href="/metronic8/demo1/apps/ecommerce/catalog/edit-product.html"
-                    class="text-gray-800 text-hover-primary"
+                    class="text-gray-800"
                     >{{ user.email }}</a
                   >
                 </td>
