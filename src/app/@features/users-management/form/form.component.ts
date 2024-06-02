@@ -29,6 +29,7 @@ export class FormComponent implements OnInit {
       firstName: [],
       lastName: [],
       userType: [],
+      isActive: [],
     });
   }
   openLg(content: any) {
@@ -48,7 +49,12 @@ export class FormComponent implements OnInit {
             ' ' +
             this.userManagementFormGroup.value.lastName;
           this.user.userId = this.user.id;
-          delete this.user.id
+
+          this.user.userType = this.userManagementFormGroup.controls.userType.value;
+          this.user.isActive =
+            this.userManagementFormGroup.controls.isActive.value === 'true' ? true : false;
+
+          console.log(this.user);
 
           this.userManagemntSercice.updateUser(this.user).subscribe(() => {
             this.noticService.successNotice('Success', 'Updated successfully');

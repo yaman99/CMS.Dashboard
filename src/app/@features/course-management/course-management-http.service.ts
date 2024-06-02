@@ -15,8 +15,8 @@ export class CourseManagementHttpService {
   getStudentCourses(): Observable<any> {
     return this.http.get<any>(`${course_management_url}/get-student-courses`);
   }
-  getAllCourses(): Observable<any> {
-    return this.http.get<any>(`${course_management_url}/get-courses`);
+  getAllCourses(forExplore:boolean): Observable<any> {
+    return this.http.get<any>(`${course_management_url}/get-courses/${forExplore}`);
   }
   addCourse(payload: any): Observable<any[]> {
     return this.http.post<any[]>(`${course_management_url}/add-course`, payload);

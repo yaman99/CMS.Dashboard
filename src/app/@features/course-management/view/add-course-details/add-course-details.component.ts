@@ -39,7 +39,7 @@ export class AddCourseDetailsComponent implements OnInit {
   }
 
   openVideo(videoName: string) {
-    window.location.href = environment.filesPath + '/' + videoName;
+    window.open(environment.filesPath + '/' + videoName, "_blank")
   }
 
   deleteLesson(lessonId: any) {

@@ -22,7 +22,7 @@ export class LibraryComponent implements OnInit {
   }
 
   getCourses() {
-    this.coursestHttp.getAllCourses().subscribe((res) => {
+    this.coursestHttp.getAllCourses(true).subscribe((res) => {
       this.courses.next(res.data);
       this.coursestHttp.setCoursesInStorage(res.data);
     });

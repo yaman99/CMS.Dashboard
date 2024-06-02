@@ -22,10 +22,7 @@ export class InstructorListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.coursestHttp.getInstructorCourses().subscribe((res) => {
-      this.courses.next(res.data);
-      this.coursestHttp.setCoursesInStorage(res.data);
-    });
+    this.getCourses();
     this.Courseform = this.fb.group({
       title: [''],
       subject: [''],
@@ -38,15 +35,21 @@ export class InstructorListComponent implements OnInit {
     };
     this.coursestHttp.deleteCourse(model).subscribe((result) => {
       this.noticService.successNotice('Course Deleted');
-      this.coursestHttp.getInstructorCourses();
-    });;
+      this.getCourses();
+    });
+  }
+  getCourses() {
+    this.coursestHttp.getInstructorCourses().subscribe((res) => {
+      this.courses.next(res.data);
+      this.coursestHttp.setCoursesInStorage(res.data);
+    });
   }
   AddNewCoursePopUp(content: TemplateRef<any>) {
     this.modalService.open(content, { centered: true }).result.then(
       (result) => {
         this.coursestHttp.addCourse(this.Courseform.value).subscribe((result) => {
           this.noticService.successNotice('Courses Added Successfully');
-          this.coursestHttp.getInstructorCourses();
+          this.getCourses();
         });
       },
       (reason) => {}
